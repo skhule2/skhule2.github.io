@@ -9,10 +9,10 @@
     :root{
       --bg: #fbf6ef;
       --bg2:#f6efe6;
-      --text:#121826;
+      --text:#121826;        /* graphite */
       --muted:#5b677a;
       --line:#e7ded2;
-      --accent:#f59e0b;
+      --accent:#f59e0b;      /* orange */
       --white:#ffffff;
     }
 
@@ -28,12 +28,38 @@
     /* ---------- TOP (NAV + HERO) ---------- */
     .top{
       min-height: 95vh;
-      background:
-        linear-gradient(180deg, rgba(251,246,239,.92), rgba(246,239,230,.92)),
-        radial-gradient(900px 600px at 20% 0%, rgba(245,158,11,.10), transparent 60%),
-        radial-gradient(900px 600px at 80% 20%, rgba(18,24,38,.06), transparent 55%);
+      position: relative;
+      overflow: hidden;
       border-bottom: 1px solid var(--line);
+      background: var(--bg);
     }
+
+    /* Background image layer (faded) */
+    .top::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-image: url("OIP.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: .14;              /* fade image */
+      filter: grayscale(35%) contrast(105%);
+      transform: scale(1.02);
+      z-index: 0;
+    }
+
+    /* Cream overlay layer to keep readability */
+    .top::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(251,246,239,.90), rgba(246,239,230,.92));
+      z-index: 1;
+    }
+
+    /* Keep nav + hero above overlays */
+    .nav, .hero{ position: relative; z-index: 2; }
 
     .nav{
       max-width: 1100px;
@@ -46,8 +72,29 @@
     }
 
     .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
       font-weight: 700;
       letter-spacing: .2px;
+      color: var(--text);
+    }
+
+    /* SK logo */
+    .logo{
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight: 900;
+      letter-spacing: .08em;
+      color: #1a1a1a;
+      background: radial-gradient(circle at 30% 30%, rgba(245,158,11,.55), rgba(245,158,11,.18));
+      border: 1px solid rgba(18,24,38,.12);
+      box-shadow: 0 8px 18px rgba(18,24,38,.08);
+      user-select: none;
     }
 
     .navlinks{
@@ -65,29 +112,55 @@
 
     .navlinks a:hover{ color: var(--text); }
 
+    /* Right-aligned buttons group */
+    .navactions{
+      margin-left: auto;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+
     .navbtn{
       padding: 10px 16px;
       border-radius: 10px;
       background: var(--accent);
       color: #1a1a1a !important;
-      font-weight: 700;
-      border: 1px solid rgba(0,0,0,.08);
+      font-weight: 800;
+      border: 1px solid rgba(0,0,0,.10);
+      text-decoration:none;
+      white-space: nowrap;
+    }
+
+    .navbtn.secondary{
+      background: rgba(255,255,255,.55);
+      color: var(--text) !important;
+      border: 1px solid #d7cbbb;
+      font-weight: 800;
     }
 
     /* ---------- HERO ---------- */
     .hero{
       max-width: 980px;
       margin: 0 auto;
-      padding: 90px 24px 40px;
+      padding: 120px 24px 40px;  /* shifted down a bit */
       text-align: center;
+    }
+
+    /* New intro line */
+    .intro{
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
     }
 
     .kicker{
       margin: 0 0 18px;
-      font-size: 12px;
+      font-size: 13px;            /* increased a bit */
       letter-spacing: .35em;
       color: var(--accent);
-      font-weight: 800;
+      font-weight: 900;
+      text-transform: uppercase;
     }
 
     .headline{
@@ -122,7 +195,7 @@
       padding: 14px 22px;
       border-radius: 12px;
       text-decoration:none;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
       border: 1px solid transparent;
     }
@@ -130,26 +203,44 @@
     .btn.primary{
       background: var(--accent);
       color: #1a1a1a;
+      border: 1px solid rgba(0,0,0,.10);
     }
 
     .btn.ghost{
-      background: rgba(255,255,255,.4);
+      background: rgba(255,255,255,.55);
       border-color: #d7cbbb;
       color: var(--text);
     }
 
     .btn:hover{ opacity: .9; transition: .15s ease; }
 
-    .scrollhint{
+    /* Mouse scroll indicator (below buttons) */
+    .mouse{
       margin: 52px auto 0;
-      width: 38px;
-      height: 38px;
+      width: 32px;
+      height: 48px;
       border-radius: 999px;
-      border: 1px solid #d7cbbb;
+      border: 2px solid #d7cbbb;
       display:flex;
-      align-items:center;
+      align-items:flex-start;
       justify-content:center;
-      color: var(--muted);
+      padding-top: 10px;
+      background: rgba(255,255,255,.28);
+    }
+
+    .mouse::before{
+      content:"";
+      width: 6px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      animation: wheel 1.4s ease-in-out infinite;
+    }
+
+    @keyframes wheel{
+      0%{ transform: translateY(0); opacity: 1; }
+      60%{ transform: translateY(10px); opacity: .2; }
+      100%{ transform: translateY(0); opacity: 1; }
     }
 
     /* ---------- SECTIONS ---------- */
@@ -180,15 +271,21 @@
     }
 
     /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 900px){
-      .headline{ font-size: 52px; }
-      .hero{ padding-top: 70px; }
+    @media (max-width: 1000px){
+      .hero{ padding-top: 110px; }
+      .headline{ font-size: 56px; }
+    }
+
+    @media (max-width: 700px){
+      .headline{ font-size: 44px; }
+      .subhead{ font-size: 16px; }
+      .nav{ padding: 14px 16px; }
     }
 
     @media (max-width: 560px){
-      .headline{ font-size: 42px; }
-      .subhead{ font-size: 16px; }
-      .navlinks{ gap: 14px; }
+      .navlinks{ gap: 12px; }
+      .navactions{ width: 100%; justify-content: flex-end; }
+      .brand span{ display:none; } /* keep logo clean on tiny screens */
     }
   </style>
 </head>
@@ -197,7 +294,10 @@
 
 <header class="top">
   <nav class="nav">
-    <div class="brand">Shubham Khule</div>
+    <div class="brand">
+      <div class="logo">SK</div>
+      <span>Shubham Khule</span>
+    </div>
 
     <div class="navlinks">
       <a href="#about">About</a>
@@ -205,11 +305,16 @@
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
       <a href="#contact">Contact</a>
-      <a class="navbtn" href="resume.pdf" target="_blank">Resume</a>
+    </div>
+
+    <div class="navactions">
+      <a class="navbtn secondary" href="#research">Published Research</a>
+      <a class="navbtn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </nav>
 
   <div class="hero">
+    <p class="intro">Hi, I’m Shubham Khule</p>
     <p class="kicker">MECHANICAL & ENERGY ENGINEER</p>
 
     <h1 class="headline">
@@ -227,7 +332,7 @@
       <a class="btn ghost" href="#contact">Get in Touch</a>
     </div>
 
-    <div class="scrollhint">⌄</div>
+    <div class="mouse" aria-hidden="true"></div>
   </div>
 </header>
 
@@ -248,17 +353,45 @@
   </div>
 </section>
 
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="card">
+    <p><strong>Tools:</strong> AutoCAD, SolidWorks, Fusion 360, MATLAB, Excel</p>
+    <p><strong>Domain:</strong> Solar PV, Wind Energy, Thermal Analysis, Mechanical Design</p>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="card">
+    <p><strong>Arizona State University</strong> — M.S. Modern Energy Production and Sustainable Use</p>
+    <p><strong>Bachelor’s</strong> — Mechanical Engineering</p>
+  </div>
+</section>
+
+<section id="research">
+  <h2>Published Research</h2>
+  <div class="card">
+    <p>Add your published paper(s) here with title, venue, year, and a link to PDF/DOI.</p>
+  </div>
+</section>
+
 <section id="contact">
   <h2>Contact</h2>
   <div class="card">
     <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
     <p>GitHub: <a href="https://github.com/skhule2">github.com/skhule2</a></p>
+    <p>LinkedIn: <a href="#">Add your LinkedIn link</a></p>
   </div>
 </section>
 
 <footer>
   © 2026 Shubham Khule
 </footer>
+
+</body>
+</html>
+
 
 </body>
 </html>
