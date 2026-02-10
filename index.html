@@ -6,137 +6,143 @@
   <title>Shubham Khule | Portfolio</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #0f172a;
-      color: #e5e7eb;
-    }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f7f3ed; /* cream white */
+    color: #1f2933; /* graphite */
+  }
 
-    /* HERO */
-    .hero {
-      padding: 72px 20px;
-      background: radial-gradient(900px 500px at 20% 0%, rgba(56,189,248,.20), transparent 55%),
-                  linear-gradient(135deg, #1e293b, #020617);
-    }
+  /* HERO */
+  .hero {
+    padding: 72px 20px;
+    background: linear-gradient(180deg, #f7f3ed 0%, #f1ece4 100%);
+  }
 
-    .hero-wrap {
-      max-width: 900px;
-      margin: 0 auto;
-    }
+  .hero-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-    .eyebrow {
-      color: #93c5fd;
-      letter-spacing: .3px;
-      text-transform: uppercase;
-      font-size: 12px;
-      margin-bottom: 10px;
-    }
+  .eyebrow {
+    color: #4b5563;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
 
-    h1 {
-      font-size: 2.6rem;
-      margin: 0;
-    }
+  h1 {
+    font-size: 2.6rem;
+    margin: 0;
+    color: #111827;
+  }
 
-    .lead {
-      margin: 16px 0 22px;
-      color: #cbd5f5;
-      font-size: 16px;
-      line-height: 1.7;
-    }
+  .lead {
+    margin: 16px 0 22px;
+    color: #374151;
+    font-size: 16px;
+    line-height: 1.7;
+  }
 
-    .btn-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
+  /* BUTTONS */
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+  }
 
-    .btn {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid #334155;
-      background: rgba(2,6,23,.45);
-      color: #e5e7eb;
-      text-decoration: none;
-    }
+  .btn {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1.5px solid #111827;
+    background: transparent;
+    color: #111827;
+    text-decoration: none;
+    font-weight: 500;
+  }
 
-    .btn.primary {
-      border-color: rgba(56,189,248,.8);
-      background: rgba(56,189,248,.18);
-    }
+  .btn.primary {
+    background: #111827;
+    color: #f7f3ed;
+  }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      transition: .15s ease;
-    }
+  .btn:hover {
+    opacity: 0.85;
+    transition: .15s ease;
+  }
 
+  /* HIGHLIGHTS */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .highlight {
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+  }
+
+  .highlight b {
+    display: block;
+    margin-bottom: 4px;
+    color: #111827;
+  }
+
+  .highlight span {
+    color: #4b5563;
+    font-size: 13px;
+  }
+
+  /* SECTIONS */
+  section {
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 20px;
+  }
+
+  h2 {
+    border-bottom: 2px solid #d1d5db;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    color: #111827;
+  }
+
+  .card {
+    background-color: #ffffff;
+    padding: 22px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px;
+    background-color: #f1ece4;
+    color: #4b5563;
+  }
+
+  a {
+    color: #111827;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 700px) {
     .highlights {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      grid-template-columns: 1fr;
     }
+    h1 {
+      font-size: 2.1rem;
+    }
+  }
+</style>
 
-    .highlight {
-      padding: 14px;
-      border-radius: 12px;
-      border: 1px solid #334155;
-      background: rgba(2,6,23,.55);
-    }
-
-    .highlight b {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .highlight span {
-      color: #94a3b8;
-      font-size: 13px;
-    }
-
-    /* SECTIONS */
-    section {
-      max-width: 900px;
-      margin: auto;
-      padding: 50px 20px;
-    }
-
-    h2 {
-      border-bottom: 2px solid #334155;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-    }
-
-    .card {
-      background-color: #020617;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      border: 1px solid #334155;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background-color: #020617;
-      color: #94a3b8;
-    }
-
-    a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-
-    @media (max-width: 700px) {
-      .highlights {
-        grid-template-columns: 1fr;
-      }
-      h1 {
-        font-size: 2.1rem;
-      }
-    }
-  </style>
 </head>
 
 <body>
