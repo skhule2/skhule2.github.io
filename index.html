@@ -1,293 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shubham Khule | Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shubham Khule | Portfolio</title>
 
-  <style>
-    :root{
-      --bg: #fbf6ef;
-      --bg2:#f6efe6;
-      --text:#121826;        /* graphite */
-      --muted:#5b677a;
-      --line:#e7ded2;
-      --accent:#f59e0b;      /* orange */
-      --white:#ffffff;
-    }
+<style>
+:root{
+  --bg:#fbf6ef;
+  --bg2:#f6efe6;
+  --text:#121826;
+  --muted:#5b677a;
+  --line:#e7ded2;
+  --accent:#f59e0b;
+  --white:#ffffff;
+}
 
-    *{ box-sizing: border-box; }
+*{box-sizing:border-box;}
 
-    body{
-      margin:0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    /* ---------- TOP (NAV + HERO) ---------- */
-    .top{
-      min-height: 95vh;
-      position: relative;
-      overflow: hidden;
-      border-bottom: 1px solid var(--line);
-      background: var(--bg);
-    }
+/* ================= HERO + BACKGROUND ================= */
+.top{
+  min-height:95vh;
+  position:relative;
+  overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
 
-    /* Background image layer (faded) */
-    .top::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image: url("OIP.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      opacity: .14;              /* fade image */
-      filter: grayscale(35%) contrast(105%);
-      transform: scale(1.02);
-      z-index: 0;
-    }
+.top::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("OIP.jpg") center/cover no-repeat;
+  opacity:.14;
+  filter:grayscale(40%) contrast(105%);
+  z-index:0;
+}
 
-    /* Cream overlay layer to keep readability */
-    .top::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background: linear-gradient(180deg, rgba(251,246,239,.90), rgba(246,239,230,.92));
-      z-index: 1;
-    }
+.top::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(251,246,239,.92),rgba(246,239,230,.94));
+  z-index:1;
+}
 
-    /* Keep nav + hero above overlays */
-    .nav, .hero{ position: relative; z-index: 2; }
+.nav,.hero{position:relative;z-index:2;}
 
-    .nav{
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 18px 24px;
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 16px;
-    }
+/* ================= NAV ================= */
+.nav{
+  width:100%;
+  padding:18px 42px;
+  display:flex;
+  align-items:center;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: .2px;
-      color: var(--text);
-    }
+.brand{
+  min-width:90px;
+}
 
-    /* SK logo */
-    .logo{
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight: 900;
-      letter-spacing: .08em;
-      color: #1a1a1a;
-      background: radial-gradient(circle at 30% 30%, rgba(245,158,11,.55), rgba(245,158,11,.18));
-      border: 1px solid rgba(18,24,38,.12);
-      box-shadow: 0 8px 18px rgba(18,24,38,.08);
-      user-select: none;
-    }
+/* OPTION A – CREATIVE LOGO */
+.logo{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  font-size:15px;
+  letter-spacing:.18em;
+  color:var(--text);
+  background:linear-gradient(135deg,rgba(245,158,11,.35),rgba(245,158,11,.08));
+  border:1px solid rgba(18,24,38,.18);
+  box-shadow:0 10px 25px rgba(18,24,38,.1), inset 0 1px 0 rgba(255,255,255,.6);
+  position:relative;
+}
 
-    .navlinks{
-      display:flex;
-      align-items:center;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
+.logo::after{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border-radius:10px;
+  border:1px dashed rgba(18,24,38,.18);
+}
 
-    .navlinks a{
-      text-decoration:none;
-      color: var(--muted);
-      font-size: 14px;
-    }
+.navlinks{
+  display:flex;
+  gap:22px;
+  margin-left:32px;
+}
 
-    .navlinks a:hover{ color: var(--text); }
+.navlinks a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:14px;
+}
 
-    /* Right-aligned buttons group */
-    .navactions{
-      margin-left: auto;
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
+.navlinks a:hover{color:var(--text);}
 
-    .navbtn{
-      padding: 10px 16px;
-      border-radius: 10px;
-      background: var(--accent);
-      color: #1a1a1a !important;
-      font-weight: 800;
-      border: 1px solid rgba(0,0,0,.10);
-      text-decoration:none;
-      white-space: nowrap;
-    }
+.navactions{
+  margin-left:auto;
+}
 
-    .navbtn.secondary{
-      background: rgba(255,255,255,.55);
-      color: var(--text) !important;
-      border: 1px solid #d7cbbb;
-      font-weight: 800;
-    }
+.navbtn{
+  padding:10px 18px;
+  border-radius:10px;
+  background:var(--accent);
+  color:#1a1a1a;
+  font-weight:800;
+  text-decoration:none;
+  border:1px solid rgba(0,0,0,.12);
+}
 
-    /* ---------- HERO ---------- */
-    .hero{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 120px 24px 40px;  /* shifted down a bit */
-      text-align: center;
-    }
+/* ================= HERO CONTENT ================= */
+.hero{
+  max-width:980px;
+  margin:0 auto;
+  padding:135px 24px 40px;
+  text-align:center;
+}
 
-    /* New intro line */
-    .intro{
-      margin: 0 0 10px;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--text);
-    }
+.intro{
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.55);
+  border:1px solid #d7cbbb;
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:14px;
+}
 
-    .kicker{
-      margin: 0 0 18px;
-      font-size: 13px;            /* increased a bit */
-      letter-spacing: .35em;
-      color: var(--accent);
-      font-weight: 900;
-      text-transform: uppercase;
-    }
+.kicker{
+  font-size:14px;
+  letter-spacing:.35em;
+  font-weight:900;
+  color:var(--accent);
+  margin-bottom:18px;
+}
 
-    .headline{
-      margin: 0;
-      font-size: 76px;
-      line-height: 0.95;
-      letter-spacing: -0.02em;
-    }
+.headline{
+  font-size:76px;
+  line-height:.95;
+  margin:0;
+}
 
-    .accent{
-      color: var(--accent);
-    }
+.accent{color:var(--accent);}
 
-    .subhead{
-      margin: 26px auto 0;
-      max-width: 720px;
-      font-size: 18px;
-      line-height: 1.75;
-      color: var(--muted);
-    }
+.subhead{
+  max-width:720px;
+  margin:26px auto 0;
+  font-size:18px;
+  line-height:1.75;
+  color:var(--muted);
+}
 
-    .cta{
-      margin-top: 34px;
-      display:flex;
-      justify-content:center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+.cta{
+  margin-top:34px;
+  display:flex;
+  justify-content:center;
+  gap:14px;
+}
 
-    .btn{
-      display:inline-block;
-      padding: 14px 22px;
-      border-radius: 12px;
-      text-decoration:none;
-      font-weight: 800;
-      font-size: 14px;
-      border: 1px solid transparent;
-    }
+.btn{
+  padding:14px 24px;
+  border-radius:12px;
+  font-weight:800;
+  font-size:14px;
+  text-decoration:none;
+}
 
-    .btn.primary{
-      background: var(--accent);
-      color: #1a1a1a;
-      border: 1px solid rgba(0,0,0,.10);
-    }
+.btn.primary{
+  background:var(--accent);
+  color:#1a1a1a;
+}
 
-    .btn.ghost{
-      background: rgba(255,255,255,.55);
-      border-color: #d7cbbb;
-      color: var(--text);
-    }
+.btn.ghost{
+  background:rgba(255,255,255,.55);
+  border:1px solid #d7cbbb;
+  color:var(--text);
+}
 
-    .btn:hover{ opacity: .9; transition: .15s ease; }
+/* ================= SCROLL MOUSE ================= */
+.mouse{
+  margin:52px auto 0;
+  width:32px;
+  height:48px;
+  border-radius:999px;
+  border:2px solid #d7cbbb;
+  display:flex;
+  justify-content:center;
+  padding-top:10px;
+}
 
-    /* Mouse scroll indicator (below buttons) */
-    .mouse{
-      margin: 52px auto 0;
-      width: 32px;
-      height: 48px;
-      border-radius: 999px;
-      border: 2px solid #d7cbbb;
-      display:flex;
-      align-items:flex-start;
-      justify-content:center;
-      padding-top: 10px;
-      background: rgba(255,255,255,.28);
-    }
+.mouse::before{
+  content:"";
+  width:6px;
+  height:10px;
+  border-radius:999px;
+  background:var(--accent);
+  animation:wheel 1.4s infinite;
+}
 
-    .mouse::before{
-      content:"";
-      width: 6px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--accent);
-      animation: wheel 1.4s ease-in-out infinite;
-    }
+@keyframes wheel{
+  0%{transform:translateY(0);opacity:1;}
+  60%{transform:translateY(10px);opacity:.2;}
+  100%{transform:translateY(0);opacity:1;}
+}
 
-    @keyframes wheel{
-      0%{ transform: translateY(0); opacity: 1; }
-      60%{ transform: translateY(10px); opacity: .2; }
-      100%{ transform: translateY(0); opacity: 1; }
-    }
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .headline{font-size:52px;}
+}
 
-    /* ---------- SECTIONS ---------- */
-    section{
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 80px 24px;
-    }
-
-    h2{
-      margin: 0 0 18px;
-      font-size: 28px;
-    }
-
-    .card{
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 24px;
-    }
-
-    footer{
-      padding: 30px 24px;
-      text-align:center;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-      background: var(--bg2);
-    }
-
-    /* ---------- RESPONSIVE ---------- */
-    @media (max-width: 1000px){
-      .hero{ padding-top: 110px; }
-      .headline{ font-size: 56px; }
-    }
-
-    @media (max-width: 700px){
-      .headline{ font-size: 44px; }
-      .subhead{ font-size: 16px; }
-      .nav{ padding: 14px 16px; }
-    }
-
-    @media (max-width: 560px){
-      .navlinks{ gap: 12px; }
-      .navactions{ width: 100%; justify-content: flex-end; }
-      .brand span{ display:none; } /* keep logo clean on tiny screens */
-    }
-  </style>
+@media(max-width:600px){
+  .navlinks{display:none;}
+  .headline{font-size:42px;}
+}
+</style>
 </head>
 
 <body>
@@ -296,7 +233,6 @@
   <nav class="nav">
     <div class="brand">
       <div class="logo">SK</div>
-      <span>Shubham Khule</span>
     </div>
 
     <div class="navlinks">
@@ -304,18 +240,19 @@
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
+      <a href="#research">Published Research</a>
       <a href="#contact">Contact</a>
     </div>
 
     <div class="navactions">
-      <a class="navbtn secondary" href="#research">Published Research</a>
-      <a class="navbtn" href="resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <a class="navbtn" href="#">Resume</a>
     </div>
   </nav>
 
   <div class="hero">
-    <p class="intro">Hi, I’m Shubham Khule</p>
-    <p class="kicker">MECHANICAL & ENERGY ENGINEER</p>
+    <div class="intro">Hi, I’m Shubham Khule</div>
+
+    <div class="kicker">MECHANICAL & ENERGY ENGINEER</div>
 
     <h1 class="headline">
       Engineering <span class="accent">Tomorrow’s</span><br>
@@ -332,66 +269,9 @@
       <a class="btn ghost" href="#contact">Get in Touch</a>
     </div>
 
-    <div class="mouse" aria-hidden="true"></div>
+    <div class="mouse"></div>
   </div>
 </header>
-
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    I am a Mechanical Engineering graduate student at Arizona State University specializing
-    in modern energy production and sustainable systems, with a focus on solar PV,
-    wind energy, and thermal management for power electronics.
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="card">
-    <strong>Double-Sided Cooling & Wire-Bond-Less SiC Power Modules</strong>
-    <p>Advanced power module packaging concepts for high-efficiency solar inverter applications.</p>
-  </div>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="card">
-    <p><strong>Tools:</strong> AutoCAD, SolidWorks, Fusion 360, MATLAB, Excel</p>
-    <p><strong>Domain:</strong> Solar PV, Wind Energy, Thermal Analysis, Mechanical Design</p>
-  </div>
-</section>
-
-<section id="education">
-  <h2>Education</h2>
-  <div class="card">
-    <p><strong>Arizona State University</strong> — M.S. Modern Energy Production and Sustainable Use</p>
-    <p><strong>Bachelor’s</strong> — Mechanical Engineering</p>
-  </div>
-</section>
-
-<section id="research">
-  <h2>Published Research</h2>
-  <div class="card">
-    <p>Add your published paper(s) here with title, venue, year, and a link to PDF/DOI.</p>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="card">
-    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/skhule2">github.com/skhule2</a></p>
-    <p>LinkedIn: <a href="#">Add your LinkedIn link</a></p>
-  </div>
-</section>
-
-<footer>
-  © 2026 Shubham Khule
-</footer>
-
-</body>
-</html>
-
 
 </body>
 </html>
