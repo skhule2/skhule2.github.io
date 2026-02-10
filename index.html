@@ -1,0 +1,119 @@
+<header>
+  <h1>Shubham Khule</h1>
+  <p>Mechanical Engineer | Renewable Energy | Solar PV | Wind Energy</p>
+</header>
+<header class="hero">
+  <div class="hero-wrap">
+    <p class="eyebrow">Mechanical Engineer • Renewable Energy • ASU (MS)</p>
+
+    <h1>Shubham Khule</h1>
+
+    <p class="lead">
+      I’m a Mechanical Engineering graduate student at Arizona State University focused on
+      solar PV performance, wind energy analysis, and thermal/electrical concepts for power electronics.
+    </p>
+
+    <div class="btn-row">
+      <!-- Replace these links later -->
+      <a class="btn primary" href="#contact">Contact</a>
+      <a class="btn" href="#" target="_blank" rel="noopener">Resume (PDF)</a>
+      <a class="btn" href="https://github.com/skhule2" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+
+    <div class="highlights">
+      <div class="highlight">
+        <b>Solar PV</b>
+        <span>I–V curves • STC • diagnostics</span>
+      </div>
+      <div class="highlight">
+        <b>Wind</b>
+        <span>Weibull/PDF • yield estimation</span>
+      </div>
+      <div class="highlight">
+        <b>Thermal / Packaging</b>
+        <span>cooling concepts • SiC modules</span>
+      </div>
+    </div>
+  </div>
+</header>
+.hero {
+  padding: 72px 20px;
+  text-align: left;
+  background: radial-gradient(900px 500px at 20% 0%, rgba(56,189,248,.20), transparent 55%),
+              linear-gradient(135deg, #1e293b, #020617);
+}
+
+.hero-wrap{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow{
+  color: #93c5fd;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 0 0 10px;
+}
+
+.lead{
+  margin: 16px 0 22px;
+  color: #cbd5f5;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.btn-row{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  background: rgba(2,6,23,.45);
+  color: #e5e7eb;
+}
+
+.btn.primary{
+  border-color: rgba(56,189,248,.8);
+  background: rgba(56,189,248,.18);
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  transition: .15s ease;
+}
+
+.highlights{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.highlight{
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background: rgba(2,6,23,.55);
+}
+
+.highlight b{
+  display: block;
+  margin-bottom: 4px;
+}
+
+.highlight span{
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+@media (max-width: 700px){
+  .highlights{ grid-template-columns: 1fr; }
+  .hero{ padding: 52px 20px; }
+}
