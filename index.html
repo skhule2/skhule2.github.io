@@ -1,7 +1,146 @@
-<header>
-  <h1>Shubham Khule</h1>
-  <p>Mechanical Engineer | Renewable Energy | Solar PV | Wind Energy</p>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shubham Khule | Portfolio</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #0f172a;
+      color: #e5e7eb;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 72px 20px;
+      background: radial-gradient(900px 500px at 20% 0%, rgba(56,189,248,.20), transparent 55%),
+                  linear-gradient(135deg, #1e293b, #020617);
+    }
+
+    .hero-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: #93c5fd;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin: 0;
+    }
+
+    .lead {
+      margin: 16px 0 22px;
+      color: #cbd5f5;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background: rgba(2,6,23,.45);
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+
+    .btn.primary {
+      border-color: rgba(56,189,248,.8);
+      background: rgba(56,189,248,.18);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      transition: .15s ease;
+    }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .highlight {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      background: rgba(2,6,23,.55);
+    }
+
+    .highlight b {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .highlight span {
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #334155;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background-color: #020617;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #020617;
+      color: #94a3b8;
+    }
+
+    a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    @media (max-width: 700px) {
+      .highlights {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
 <header class="hero">
   <div class="hero-wrap">
     <p class="eyebrow">Mechanical Engineer • Renewable Energy • ASU (MS)</p>
@@ -14,11 +153,10 @@
     </p>
 
     <div class="btn-row">
-      <!-- Replace these links later -->
       <a class="btn primary" href="#contact">Contact</a>
-      <a class="btn" href="#" target="_blank" rel="noopener">Resume (PDF)</a>
-      <a class="btn" href="https://github.com/skhule2" target="_blank" rel="noopener">GitHub</a>
-      <a class="btn" href="#" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="#" target="_blank">Resume (PDF)</a>
+      <a class="btn" href="https://github.com/skhule2" target="_blank">GitHub</a>
+      <a class="btn" href="#" target="_blank">LinkedIn</a>
     </div>
 
     <div class="highlights">
@@ -37,83 +175,48 @@
     </div>
   </div>
 </header>
-.hero {
-  padding: 72px 20px;
-  text-align: left;
-  background: radial-gradient(900px 500px at 20% 0%, rgba(56,189,248,.20), transparent 55%),
-              linear-gradient(135deg, #1e293b, #020617);
-}
 
-.hero-wrap{
-  max-width: 900px;
-  margin: 0 auto;
-}
+<section>
+  <h2>About Me</h2>
+  <div class="card">
+    <p>
+      I am a Mechanical Engineering graduate student at Arizona State University specializing in
+      modern energy production and sustainable energy systems. My interests include solar PV
+      performance analysis, wind energy modeling, and advanced thermal management concepts
+      for power electronics.
+    </p>
+  </div>
+</section>
 
-.eyebrow{
-  color: #93c5fd;
-  letter-spacing: .3px;
-  text-transform: uppercase;
-  font-size: 12px;
-  margin: 0 0 10px;
-}
+<section>
+  <h2>Projects</h2>
+  <div class="card">
+    <strong>Double-Sided Cooling & Wire-Bond-Less SiC Power Modules</strong>
+    <p>Advanced power module packaging concepts for solar inverter applications.</p>
+  </div>
 
-.lead{
-  margin: 16px 0 22px;
-  color: #cbd5f5;
-  font-size: 16px;
-  line-height: 1.7;
-}
+  <div class="card">
+    <strong>Solar PV Performance & Diagnostics</strong>
+    <p>I–V curve analysis under varying irradiance and temperature conditions.</p>
+  </div>
 
-.btn-row{
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 22px;
-}
+  <div class="card">
+    <strong>Wind Energy Resource Assessment</strong>
+    <p>Weibull distribution fitting and annual energy yield estimation.</p>
+  </div>
+</section>
 
-.btn{
-  display: inline-block;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid #334155;
-  background: rgba(2,6,23,.45);
-  color: #e5e7eb;
-}
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/skhule2">github.com/skhule2</a></p>
+  </div>
+</section>
 
-.btn.primary{
-  border-color: rgba(56,189,248,.8);
-  background: rgba(56,189,248,.18);
-}
+<footer>
+  © 2026 Shubham Khule
+</footer>
 
-.btn:hover{
-  transform: translateY(-1px);
-  transition: .15s ease;
-}
-
-.highlights{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.highlight{
-  padding: 14px;
-  border-radius: 12px;
-  border: 1px solid #334155;
-  background: rgba(2,6,23,.55);
-}
-
-.highlight b{
-  display: block;
-  margin-bottom: 4px;
-}
-
-.highlight span{
-  color: #94a3b8;
-  font-size: 13px;
-}
-
-@media (max-width: 700px){
-  .highlights{ grid-template-columns: 1fr; }
-  .hero{ padding: 52px 20px; }
-}
+</body>
+</html>
