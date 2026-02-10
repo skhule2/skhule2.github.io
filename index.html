@@ -6,209 +6,245 @@
   <title>Shubham Khule | Portfolio</title>
 
   <style>
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f7f3ed; /* cream white */
-    color: #1f2933; /* graphite */
-  }
-
-  /* HERO */
-  .hero {
-    padding: 72px 20px;
-    background: linear-gradient(180deg, #f7f3ed 0%, #f1ece4 100%);
-  }
-
-  .hero-wrap {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .eyebrow {
-    color: #4b5563;
-    letter-spacing: .3px;
-    text-transform: uppercase;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-
-  h1 {
-    font-size: 2.6rem;
-    margin: 0;
-    color: #111827;
-  }
-
-  .lead {
-    margin: 16px 0 22px;
-    color: #374151;
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  /* BUTTONS */
-  .btn-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 22px;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 10px 14px;
-    border-radius: 8px;
-    border: 1.5px solid #111827;
-    background: transparent;
-    color: #111827;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .btn.primary {
-    background: #111827;
-    color: #f7f3ed;
-  }
-
-  .btn:hover {
-    opacity: 0.85;
-    transition: .15s ease;
-  }
-
-  /* HIGHLIGHTS */
-  .highlights {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-
-  .highlight {
-    padding: 14px;
-    border-radius: 10px;
-    border: 1px solid #d1d5db;
-    background: #ffffff;
-  }
-
-  .highlight b {
-    display: block;
-    margin-bottom: 4px;
-    color: #111827;
-  }
-
-  .highlight span {
-    color: #4b5563;
-    font-size: 13px;
-  }
-
-  /* SECTIONS */
-  section {
-    max-width: 900px;
-    margin: auto;
-    padding: 60px 20px;
-  }
-
-  h2 {
-    border-bottom: 2px solid #d1d5db;
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-    color: #111827;
-  }
-
-  .card {
-    background-color: #ffffff;
-    padding: 22px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    border: 1px solid #d1d5db;
-  }
-
-  footer {
-    text-align: center;
-    padding: 30px;
-    background-color: #f1ece4;
-    color: #4b5563;
-  }
-
-  a {
-    color: #111827;
-    text-decoration: underline;
-  }
-
-  @media (max-width: 700px) {
-    .highlights {
-      grid-template-columns: 1fr;
+    :root{
+      --bg: #fbf6ef;
+      --bg2:#f6efe6;
+      --text:#121826;
+      --muted:#5b677a;
+      --line:#e7ded2;
+      --accent:#f59e0b;
+      --white:#ffffff;
     }
-    h1 {
-      font-size: 2.1rem;
-    }
-  }
-</style>
 
+    *{ box-sizing: border-box; }
+
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    /* ---------- TOP (NAV + HERO) ---------- */
+    .top{
+      min-height: 95vh;
+      background:
+        linear-gradient(180deg, rgba(251,246,239,.92), rgba(246,239,230,.92)),
+        radial-gradient(900px 600px at 20% 0%, rgba(245,158,11,.10), transparent 60%),
+        radial-gradient(900px 600px at 80% 20%, rgba(18,24,38,.06), transparent 55%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand{
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .navlinks a{
+      text-decoration:none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .navlinks a:hover{ color: var(--text); }
+
+    .navbtn{
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #1a1a1a !important;
+      font-weight: 700;
+      border: 1px solid rgba(0,0,0,.08);
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 90px 24px 40px;
+      text-align: center;
+    }
+
+    .kicker{
+      margin: 0 0 18px;
+      font-size: 12px;
+      letter-spacing: .35em;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .headline{
+      margin: 0;
+      font-size: 76px;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    .accent{
+      color: var(--accent);
+    }
+
+    .subhead{
+      margin: 26px auto 0;
+      max-width: 720px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .cta{
+      margin-top: 34px;
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding: 14px 22px;
+      border-radius: 12px;
+      text-decoration:none;
+      font-weight: 700;
+      font-size: 14px;
+      border: 1px solid transparent;
+    }
+
+    .btn.primary{
+      background: var(--accent);
+      color: #1a1a1a;
+    }
+
+    .btn.ghost{
+      background: rgba(255,255,255,.4);
+      border-color: #d7cbbb;
+      color: var(--text);
+    }
+
+    .btn:hover{ opacity: .9; transition: .15s ease; }
+
+    .scrollhint{
+      margin: 52px auto 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid #d7cbbb;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--muted);
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    h2{
+      margin: 0 0 18px;
+      font-size: 28px;
+    }
+
+    .card{
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    footer{
+      padding: 30px 24px;
+      text-align:center;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: var(--bg2);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px){
+      .headline{ font-size: 52px; }
+      .hero{ padding-top: 70px; }
+    }
+
+    @media (max-width: 560px){
+      .headline{ font-size: 42px; }
+      .subhead{ font-size: 16px; }
+      .navlinks{ gap: 14px; }
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="hero">
-  <div class="hero-wrap">
-    <p class="eyebrow">Mechanical Engineer • Renewable Energy • ASU (MS)</p>
+<header class="top">
+  <nav class="nav">
+    <div class="brand">Shubham Khule</div>
 
-    <h1>Shubham Khule</h1>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+      <a class="navbtn" href="resume.pdf" target="_blank">Resume</a>
+    </div>
+  </nav>
 
-    <p class="lead">
-      I’m a Mechanical Engineering graduate student at Arizona State University focused on
-      solar PV performance, wind energy analysis, and thermal/electrical concepts for power electronics.
+  <div class="hero">
+    <p class="kicker">MECHANICAL & ENERGY ENGINEER</p>
+
+    <h1 class="headline">
+      Engineering <span class="accent">Tomorrow’s</span><br>
+      Energy
+    </h1>
+
+    <p class="subhead">
+      Transforming complex engineering challenges into sustainable, efficient solutions.
+      Specializing in renewable energy systems, thermal analysis, and mechanical design.
     </p>
 
-    <div class="btn-row">
-      <a class="btn primary" href="#contact">Contact</a>
-      <a class="btn" href="#" target="_blank">Resume (PDF)</a>
-      <a class="btn" href="https://github.com/skhule2" target="_blank">GitHub</a>
-      <a class="btn" href="#" target="_blank">LinkedIn</a>
+    <div class="cta">
+      <a class="btn primary" href="#projects">View Projects</a>
+      <a class="btn ghost" href="#contact">Get in Touch</a>
     </div>
 
-    <div class="highlights">
-      <div class="highlight">
-        <b>Solar PV</b>
-        <span>I–V curves • STC • diagnostics</span>
-      </div>
-      <div class="highlight">
-        <b>Wind</b>
-        <span>Weibull/PDF • yield estimation</span>
-      </div>
-      <div class="highlight">
-        <b>Thermal / Packaging</b>
-        <span>cooling concepts • SiC modules</span>
-      </div>
-    </div>
+    <div class="scrollhint">⌄</div>
   </div>
 </header>
 
-<section>
+<section id="about">
   <h2>About Me</h2>
   <div class="card">
-    <p>
-      I am a Mechanical Engineering graduate student at Arizona State University specializing in
-      modern energy production and sustainable energy systems. My interests include solar PV
-      performance analysis, wind energy modeling, and advanced thermal management concepts
-      for power electronics.
-    </p>
+    I am a Mechanical Engineering graduate student at Arizona State University specializing
+    in modern energy production and sustainable systems, with a focus on solar PV,
+    wind energy, and thermal management for power electronics.
   </div>
 </section>
 
-<section>
+<section id="projects">
   <h2>Projects</h2>
   <div class="card">
     <strong>Double-Sided Cooling & Wire-Bond-Less SiC Power Modules</strong>
-    <p>Advanced power module packaging concepts for solar inverter applications.</p>
-  </div>
-
-  <div class="card">
-    <strong>Solar PV Performance & Diagnostics</strong>
-    <p>I–V curve analysis under varying irradiance and temperature conditions.</p>
-  </div>
-
-  <div class="card">
-    <strong>Wind Energy Resource Assessment</strong>
-    <p>Weibull distribution fitting and annual energy yield estimation.</p>
+    <p>Advanced power module packaging concepts for high-efficiency solar inverter applications.</p>
   </div>
 </section>
 
