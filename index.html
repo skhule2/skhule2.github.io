@@ -391,6 +391,134 @@ footer{
     gap:40px;
   }
 }
+
+/* ================= EDUCATION (NEW) ================= */
+.education{
+  max-width:1250px;       /* utilize more page width */
+  margin:0 auto;
+  padding:95px 24px;
+  text-align:center;
+}
+
+.education .section-label{
+  display:inline-block;
+  margin-bottom:10px;
+}
+
+.education-title{
+  font-size:56px;
+  margin:0 0 48px;
+  line-height:1.05;
+}
+
+.education-title .muted{
+  font-weight:800;
+}
+
+.edu-list{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+}
+
+/* big cards like your screenshot */
+.edu-card{
+  text-align:left;
+  background:rgba(255,255,255,.55);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px 28px;
+  box-shadow:0 10px 30px rgba(18,24,38,.05);
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  gap:26px;
+  align-items:start;
+}
+
+.edu-date{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:12px;
+  background:rgba(255,255,255,.55);
+  border:1px solid var(--line);
+  color:var(--muted);
+  font-weight:800;
+  font-size:14px;
+  white-space:nowrap;
+}
+
+/* small calendar icon */
+.edu-date::before{
+  content:"";
+  width:14px;
+  height:14px;
+  display:inline-block;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(245,158,11,.9) 0 2px, transparent 3px),
+    linear-gradient(rgba(18,24,38,.25), rgba(18,24,38,.25));
+  border-radius:3px;
+  opacity:.9;
+}
+
+.edu-degree{
+  font-size:22px;
+  font-weight:900;
+  margin:0 0 4px;
+}
+
+.edu-program{
+  font-weight:900;
+  color:var(--accent);
+  margin:0 0 14px;
+}
+
+.edu-meta{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  color:var(--muted);
+  font-weight:700;
+  font-size:14px;
+  margin-bottom:14px;
+}
+
+.edu-meta .row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* little icons */
+.edu-meta .loc::before{
+  content:"📍";
+  font-size:14px;
+}
+.edu-meta .gpa::before{
+  content:"⭐";
+  font-size:14px;
+}
+
+.edu-desc{
+  color:var(--muted);
+  line-height:1.75;
+  margin:0;
+  font-size:14.5px;
+}
+
+/* responsive education */
+@media(max-width:900px){
+  .education-title{font-size:42px;}
+  .edu-card{
+    grid-template-columns:1fr;
+  }
+  .edu-date{
+    width:max-content;
+  }
+}
 </style>
 </head>
 
@@ -468,6 +596,59 @@ footer{
   </div>
 </section>
 
+<!-- ================= EDUCATION (NEW SECTION) ================= -->
+<section class="education" id="education">
+  <p class="section-label">BACKGROUND</p>
+
+  <h2 class="education-title">
+    Education & <span class="muted">Credentials</span>
+  </h2>
+
+  <div class="edu-list">
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-date">Aug 2024 – May 2026</div>
+      </div>
+
+      <div>
+        <div class="edu-degree">Master of Science</div>
+        <div class="edu-program">Modern Energy Production &amp; Sustainable Use</div>
+
+        <div class="edu-meta">
+          <div class="row loc">Arizona State University, Tempe, AZ</div>
+          <div class="row gpa">Current GPA: 3.52/4.00</div>
+        </div>
+
+        <p class="edu-desc">
+          Advanced studies in modern energy systems, sustainable technologies, and renewable energy integration for a cleaner future.
+        </p>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-date">Jun 2021 – May 2024</div>
+      </div>
+
+      <div>
+        <div class="edu-degree">Bachelor of Engineering</div>
+        <div class="edu-program">Mechanical Engineering</div>
+
+        <div class="edu-meta">
+          <div class="row loc">University of Mumbai (Terna College of Engineering), Navi Mumbai</div>
+          <div class="row gpa">GPA: 7.8/10.0</div>
+        </div>
+
+        <p class="edu-desc">
+          Comprehensive foundation in mechanical engineering principles, thermodynamics, fluid mechanics, and machine design.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <section id="certificates">
   <h2>Certificates</h2>
   <div class="card">
@@ -500,4 +681,5 @@ footer{
 
 </body>
 </html>
+
 
