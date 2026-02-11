@@ -343,23 +343,27 @@ footer{
 .about::after{ right:10px; }
 
 .headshot-inner{
-  height:360px;
   width:100%;
+  height:360px;
+  position:relative;
+  overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
-  position:relative;
-  overflow:hidden;
+  box-shadow: inset 0 0 0 10px rgba(255,255,255,.35);
 
+  /* window frame look */
   border:2px solid rgba(18,24,38,.20);
   border-top:2px dashed rgba(18,24,38,.25);
 
-  border-bottom-left-radius:22px;
-  border-bottom-right-radius:22px;
-  border-top-left-radius: 220px 260px;
-  border-top-right-radius: 220px 260px;
+  /* IMPORTANT: straight sides + perfect arch */
+  border-radius: 180px 180px 20px 20px;   /* fallback */
+  border-top-left-radius: 999px;
+  border-top-right-radius: 999px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
 
-  background: radial-gradient(circle at 30% 25%, rgba(245,158,11,.18), rgba(255,255,255,.70));
+  background: radial-gradient(circle at 30% 25%, rgba(245,158,11,.18), rgba(255,255,255,.72));
 }
 
 .quote{
