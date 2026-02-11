@@ -283,16 +283,18 @@ footer{
   .navlinks{display:none;}
   .headline{font-size:42px;}
 }
-  .about{
-  max-width:1100px;
+ .about{
+  max-width:1250px;          /* uses more of the page width */
   margin:0 auto;
-  padding:90px 24px;
+  padding:95px 24px;
+  position:relative;         /* needed for orange side lines */
 }
 
 .about-grid{
   display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap:40px;
+  grid-template-columns: 1.05fr .95fr;
+  gap:70px;                  /* MORE distance between left & right */
+  align-items:start;
 }
 
 .section-label{
@@ -324,18 +326,48 @@ footer{
   border-radius:16px;
   padding:24px;
 }
+/* orange side lines */
+.about::before,
+.about::after{
+  content:"";
+  position:absolute;
+  top:65px;
+  bottom:65px;
+  width:2px;
+  background:var(--accent);
+  opacity:.7;
+  border-radius:2px;
+}
+
+.about::before{ left:10px; }
+.about::after{ right:10px; }
 
 .headshot{
   width:100%;
-  height:240px;
-  border-radius:14px;
-  border:2px dashed rgba(18,24,38,.2);
+  height:260px;
+  border:2px dashed rgba(18,24,38,.22);
+  background: linear-gradient(135deg, rgba(245,158,11,.14), rgba(255,255,255,.65));
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
   margin-bottom:18px;
+
+  /* window/arch shape */
+  border-radius: 26px 26px 70px 70px;  /* rounded bottom like a cutout */
+  clip-path: polygon(
+    0% 18%,
+    10% 6%,
+    30% 0%,
+    50% 0%,
+    70% 0%,
+    90% 6%,
+    100% 18%,
+    100% 100%,
+    0% 100%
+  );
 }
+
 
 .quote{
   font-size:15px;
