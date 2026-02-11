@@ -283,19 +283,39 @@ footer{
   .navlinks{display:none;}
   .headline{font-size:42px;}
 }
- .about{
-  max-width:1250px;          /* uses more of the page width */
+
+/* ================= ABOUT (FIXED) ================= */
+.about{
+  max-width:1250px;
   margin:0 auto;
-  padding:95px 24px;
-  position:relative;         /* needed for orange side lines */
+  position:relative;
+  padding:100px 120px; /* more breathing room from the orange lines */
 }
+
+/* orange side lines */
+.about::before,
+.about::after{
+  content:"";
+  position:absolute;
+  top:80px;
+  bottom:80px;
+  width:2px;
+  background:var(--accent);
+  opacity:.7;
+  border-radius:2px;
+}
+
+/* move lines slightly inward (but not touching text) */
+.about::before{ left:35px; }
+.about::after{ right:35px; }
 
 .about-container{
   display:grid;
   grid-template-columns: 1.1fr 1fr;
-  gap:120px;   /* <-- THIS increases spacing */
+  gap:140px;              /* bigger distance between left and right */
   max-width:1200px;
   margin:0 auto;
+  align-items:start;
 }
 
 .section-label{
@@ -321,54 +341,23 @@ footer{
   margin-bottom:18px;
 }
 
-.about-card{
-  background:rgba(255,255,255,.6);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:24px;
-}
-/* orange side lines */
-.about::before,
-.about::after{
-  content:"";
-  position:absolute;
-  top:80px;
-  bottom:80px;
-  width:2px;
-  background:var(--accent);
-  opacity:.7;
-  border-radius:2px;
-}
-
-/* move lines slightly inward */
-.about::before{ left:20px; }
-.about::after{ right:20px; }
-
-/* section spacing */
-.about{
-  position:relative;
-  padding:100px 100px; /* more breathing room */
-}
-
-/* ================= HEADSHOT WINDOW ================= */
-
-.headshot-wrapper{
+/* headshot holder */
+.headshot-window{
   display:flex;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
 }
 
+/* cathedral / window shape */
 .headshot-inner{
-  width:360px;
-  height:500px;
+  width:340px;     /* slightly narrower like you asked */
+  height:520px;
 
-  /* Perfect cathedral shape */
-  border-top-left-radius: 180px;
-  border-top-right-radius: 180px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-top-left-radius: 220px;
+  border-top-right-radius: 220px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 
-  /* Frame styling */
   border:2px solid rgba(18,24,38,.25);
   border-top:2px dashed rgba(18,24,38,.25);
 
@@ -388,7 +377,20 @@ footer{
   overflow:hidden;
 }
 
-
+/* make About stack on mobile */
+@media(max-width:900px){
+  .about{
+    padding:80px 24px;
+  }
+  .about::before,
+  .about::after{
+    display:none;
+  }
+  .about-container{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+}
 </style>
 </head>
 
@@ -436,8 +438,9 @@ footer{
     <div class="mouse"></div>
   </div>
 </header>
+
 <section class="about" id="about">
-  <div class="about-grid">
+  <div class="about-container">
 
     <div>
       <p class="section-label">ABOUT ME</p>
@@ -456,12 +459,10 @@ footer{
       </p>
     </div>
 
-   <div class="headshot-window">
-  <div class="headshot-inner">
-    <span>HEADSHOT</span>
-  </div>
-</div>
-
+    <div class="headshot-window">
+      <div class="headshot-inner">
+        <span>HEADSHOT</span>
+      </div>
     </div>
 
   </div>
@@ -499,3 +500,4 @@ footer{
 
 </body>
 </html>
+
