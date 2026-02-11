@@ -290,11 +290,12 @@ footer{
   position:relative;         /* needed for orange side lines */
 }
 
-.about-grid{
+.about-container{
   display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap:70px;                  /* MORE distance between left & right */
-  align-items:start;
+  grid-template-columns: 1.1fr 1fr;
+  gap:120px;   /* <-- THIS increases spacing */
+  max-width:1200px;
+  margin:0 auto;
 }
 
 .section-label{
@@ -331,16 +332,23 @@ footer{
 .about::after{
   content:"";
   position:absolute;
-  top:65px;
-  bottom:65px;
+  top:80px;
+  bottom:80px;
   width:2px;
   background:var(--accent);
   opacity:.7;
   border-radius:2px;
 }
 
-.about::before{ left:10px; }
-.about::after{ right:10px; }
+/* move lines slightly inward */
+.about::before{ left:20px; }
+.about::after{ right:20px; }
+
+/* section spacing */
+.about{
+  position:relative;
+  padding:100px 100px; /* more breathing room */
+}
 
 /* ================= HEADSHOT WINDOW ================= */
 
@@ -380,11 +388,6 @@ footer{
   overflow:hidden;
 }
 
-
-.quote{
-  font-size:15px;
-  line-height:1.7;
-}
 
 </style>
 </head>
@@ -459,9 +462,6 @@ footer{
   </div>
 </div>
 
-      <p class="quote">
-        “Engineering is about learning, building, and improving every iteration counts.”
-      </p>
     </div>
 
   </div>
