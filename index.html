@@ -345,23 +345,19 @@ footer{
 .headshot{
   width:100%;
   height:320px;
-  position:relative;
-  overflow:hidden;
   margin-bottom:20px;
-
-  /* Window arch shape */
-  border-radius: 0 0 28px 28px; /* bottom slight round */
   background: linear-gradient(135deg, rgba(245,158,11,.12), rgba(255,255,255,.65));
-
-  /* This creates the real arch */
-  clip-path: path("M0,120 Q50%,0 100%,120 L100%,100% L0,100% Z");
-
   border:2px dashed rgba(18,24,38,.25);
+
+  border-top-left-radius: 50% 40%;
+  border-top-right-radius: 50% 40%;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
-  letter-spacing:.1em;
 }
 
 .quote{
