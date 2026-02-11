@@ -344,30 +344,25 @@ footer{
 
 .headshot{
   width:100%;
-  height:260px;
-  border:2px dashed rgba(18,24,38,.22);
-  background: linear-gradient(135deg, rgba(245,158,11,.14), rgba(255,255,255,.65));
+  height:320px;
+  position:relative;
+  overflow:hidden;
+  margin-bottom:20px;
+
+  /* Window arch shape */
+  border-radius: 0 0 28px 28px; /* bottom slight round */
+  background: linear-gradient(135deg, rgba(245,158,11,.12), rgba(255,255,255,.65));
+
+  /* This creates the real arch */
+  clip-path: path("M0,120 Q50%,0 100%,120 L100%,100% L0,100% Z");
+
+  border:2px dashed rgba(18,24,38,.25);
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
-  margin-bottom:18px;
-
-  /* window/arch shape */
-  border-radius: 26px 26px 70px 70px;  /* rounded bottom like a cutout */
-  clip-path: polygon(
-    0% 18%,
-    10% 6%,
-    30% 0%,
-    50% 0%,
-    70% 0%,
-    90% 6%,
-    100% 18%,
-    100% 100%,
-    0% 100%
-  );
+  letter-spacing:.1em;
 }
-
 
 .quote{
   font-size:15px;
