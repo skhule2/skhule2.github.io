@@ -342,22 +342,39 @@ footer{
 .about::before{ left:10px; }
 .about::after{ right:10px; }
 
-.headshot{
+/* ===== True arched window shape (matches your reference) ===== */
+.headshot-window{
+  background: rgba(255,255,255,.65);
+  border:1px solid rgba(215,203,187,.95);
+  border-radius:18px;
+  padding:16px;
+}
+
+/* the arch shape itself */
+.headshot-inner{
+  height:300px;
   width:100%;
-  height:320px;
-  margin-bottom:20px;
-  background: linear-gradient(135deg, rgba(245,158,11,.12), rgba(255,255,255,.65));
-  border:2px dashed rgba(18,24,38,.25);
-
-  border-top-left-radius: 50% 40%;
-  border-top-right-radius: 50% 40%;
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight:800;
+  position:relative;
+  overflow:hidden;
+
+  /* THIS is the key: straight sides + perfect arch top */
+  border:2px dashed rgba(18,24,38,.25);
+  border-bottom-left-radius:22px;
+  border-bottom-right-radius:22px;
+  border-top-left-radius: 180px 180px;
+  border-top-right-radius: 180px 180px;
+
+  background: radial-gradient(circle at 30% 25%, rgba(245,158,11,.18), rgba(255,255,255,.70));
+}
+
+/* placeholder text */
+.headshot-inner span{
+  font-weight:900;
+  letter-spacing:.08em;
+  color:var(--text);
 }
 
 .quote{
@@ -432,10 +449,11 @@ footer{
       </p>
     </div>
 
-    <div class="about-card">
-      <div class="headshot">
-        HEADSHOT
-      </div>
+   <div class="headshot-window">
+  <div class="headshot-inner">
+    <span>HEADSHOT</span>
+  </div>
+</div>
 
       <p class="quote">
         “Engineering is about learning, building, and improving every iteration counts.”
