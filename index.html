@@ -38,7 +38,7 @@ body{
   position:absolute;
   inset:0;
   background:url("OIP.jpg") center/cover no-repeat;
-  opacity:.16;
+  opacity:.28;
   filter:grayscale(40%) contrast(105%);
   z-index:0;
 }
@@ -82,7 +82,27 @@ body{
   box-shadow:0 10px 25px rgba(18,24,38,.1), inset 0 1px 0 rgba(255,255,255,.6);
   position:relative;
 }
+@keyframes logoFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
+}
 
+@keyframes logoGlow {
+  0%   { box-shadow: 0 10px 25px rgba(18,24,38,.10), inset 0 1px 0 rgba(255,255,255,.6); }
+  50%  { box-shadow: 0 14px 32px rgba(18,24,38,.14), 0 0 0 6px rgba(245,158,11,.08), inset 0 1px 0 rgba(255,255,255,.75); }
+  100% { box-shadow: 0 10px 25px rgba(18,24,38,.10), inset 0 1px 0 rgba(255,255,255,.6); }
+}
+
+/* apply animation */
+.logo{
+  animation: logoFloat 3s ease-in-out infinite, logoGlow 3s ease-in-out infinite;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.logo:hover{
+  transform: translateY(-2px) rotate(-3deg) scale(1.05);
+}
 .logo::after{
   content:"";
   position:absolute;
@@ -128,7 +148,7 @@ body{
 .hero{
   max-width:980px;
   margin:0 auto;
-  padding:135px 24px 60px;
+  padding:165px 24px 80px;
   text-align:center;
 }
 
@@ -152,7 +172,7 @@ body{
 }
 
 .headline{
-  font-size:76px;
+  font-size:82px;
   line-height:.95;
   margin:0;
 }
