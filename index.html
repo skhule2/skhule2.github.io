@@ -33,18 +33,16 @@ body{
   border-bottom:1px solid var(--line);
 }
 
-/* background image (faded) */
 .top::before{
   content:"";
   position:absolute;
   inset:0;
-  background: url("./OIP.jpg") center/cover no-repeat; /* IMPORTANT */
+  background:url("OIP.jpg") center/cover no-repeat;
   opacity:.16;
   filter:grayscale(40%) contrast(105%);
   z-index:0;
 }
 
-/* cream overlay for readability */
 .top::after{
   content:"";
   position:absolute;
@@ -61,17 +59,13 @@ body{
   padding:18px 42px;
   display:flex;
   align-items:center;
-  justify-content: space-between;
-  gap: 18px;
 }
 
-/* left side */
 .brand{
   display:flex;
   align-items:center;
 }
 
-/* OPTION A – CREATIVE LOGO */
 .logo{
   width:46px;
   height:46px;
@@ -97,12 +91,11 @@ body{
   border:1px dashed rgba(18,24,38,.18);
 }
 
-/* RIGHT SIDE GROUP (links + button together) */
 .navright{
   margin-left:auto;
   display:flex;
   align-items:center;
-  gap: 18px;
+  gap:20px;
 }
 
 .navlinks{
@@ -114,8 +107,8 @@ body{
 .navlinks a{
   text-decoration:none;
   color:var(--muted);
-  font-size:14px
- white-space: nowrap;
+  font-size:14px;
+  white-space:nowrap;
 }
 
 .navlinks a:hover{color:var(--text);}
@@ -128,14 +121,14 @@ body{
   font-weight:800;
   text-decoration:none;
   border:1px solid rgba(0,0,0,.12);
-  white-space: nowrap;
+  white-space:nowrap;
 }
 
-/* ================= HERO CONTENT ================= */
+/* ================= HERO ================= */
 .hero{
   max-width:980px;
   margin:0 auto;
-  padding:135px 24px 40px;
+  padding:135px 24px 60px;
   text-align:center;
 }
 
@@ -200,7 +193,7 @@ body{
   color:var(--text);
 }
 
-/* ================= SCROLL MOUSE ================= */
+/* Scroll mouse */
 .mouse{
   margin:52px auto 0;
   width:32px;
@@ -210,7 +203,7 @@ body{
   display:flex;
   justify-content:center;
   padding-top:10px;
-  background: rgba(255,255,255,.25);
+  background:rgba(255,255,255,.25);
 }
 
 .mouse::before{
@@ -228,14 +221,46 @@ body{
   100%{transform:translateY(0);opacity:1;}
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= SECTIONS ================= */
+section{
+  max-width:900px;
+  margin:0 auto;
+  padding:80px 24px;
+}
+
+h2{
+  margin:0 0 18px;
+  font-size:28px;
+}
+
+.card{
+  background:var(--white);
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:24px;
+}
+
+ul{
+  margin:0;
+  padding-left:20px;
+  line-height:1.9;
+}
+
+footer{
+  padding:30px;
+  text-align:center;
+  border-top:1px solid var(--line);
+  background:var(--bg2);
+  color:var(--muted);
+}
+
+/* Responsive */
 @media(max-width:1000px){
   .headline{font-size:52px;}
 }
 
 @media(max-width:720px){
-  .nav{ padding:14px 16px; }
-  .navlinks{ display:none; } /* simple mobile behavior for now */
+  .navlinks{display:none;}
   .headline{font-size:42px;}
 }
 </style>
@@ -255,17 +280,16 @@ body{
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
+        <a href="#certificates">Certificates</a>
         <a href="#research">Published Research</a>
         <a href="#contact">Contact</a>
       </div>
-
       <a class="navbtn" href="#">Resume</a>
     </div>
   </nav>
 
   <div class="hero">
     <div class="intro">Hi, I’m Shubham Khule</div>
-
     <div class="kicker">MECHANICAL & ENERGY ENGINEER</div>
 
     <h1 class="headline">
@@ -286,6 +310,36 @@ body{
     <div class="mouse"></div>
   </div>
 </header>
+
+<section id="certificates">
+  <h2>Certificates</h2>
+  <div class="card">
+    <ul>
+      <li>Certificate Name — Issuer (Year) — <a href="#">Link</a></li>
+      <li>Certificate Name — Issuer (Year) — <a href="#">Link</a></li>
+      <li>Certificate Name — Issuer (Year) — <a href="#">Link</a></li>
+    </ul>
+  </div>
+</section>
+
+<section id="research">
+  <h2>Published Research</h2>
+  <div class="card">
+    <p>Add your research papers here with title, journal, year, and link.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/skhule2" target="_blank">github.com/skhule2</a></p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Shubham Khule
+</footer>
 
 </body>
 </html>
