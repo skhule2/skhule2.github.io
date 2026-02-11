@@ -33,16 +33,18 @@ body{
   border-bottom:1px solid var(--line);
 }
 
+/* background image (faded) */
 .top::before{
   content:"";
   position:absolute;
   inset:0;
-  background:url("OIP.jpg") center/cover no-repeat;
-  opacity:.14;
+  background: url("./OIP.jpg") center/cover no-repeat; /* IMPORTANT */
+  opacity:.16;
   filter:grayscale(40%) contrast(105%);
   z-index:0;
 }
 
+/* cream overlay for readability */
 .top::after{
   content:"";
   position:absolute;
@@ -59,10 +61,14 @@ body{
   padding:18px 42px;
   display:flex;
   align-items:center;
+  justify-content: space-between;
+  gap: 18px;
 }
 
+/* left side */
 .brand{
-  min-width:90px;
+  display:flex;
+  align-items:center;
 }
 
 /* OPTION A – CREATIVE LOGO */
@@ -91,23 +97,28 @@ body{
   border:1px dashed rgba(18,24,38,.18);
 }
 
+/* RIGHT SIDE GROUP (links + button together) */
+.navright{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap: 18px;
+}
+
 .navlinks{
   display:flex;
-  gap:22px;
-  margin-left:32px;
+  gap:18px;
+  align-items:center;
 }
 
 .navlinks a{
   text-decoration:none;
   color:var(--muted);
-  font-size:14px;
+  font-size:14px
+ white-space: nowrap;
 }
 
 .navlinks a:hover{color:var(--text);}
-
-.navactions{
-  margin-left:auto;
-}
 
 .navbtn{
   padding:10px 18px;
@@ -117,6 +128,7 @@ body{
   font-weight:800;
   text-decoration:none;
   border:1px solid rgba(0,0,0,.12);
+  white-space: nowrap;
 }
 
 /* ================= HERO CONTENT ================= */
@@ -198,6 +210,7 @@ body{
   display:flex;
   justify-content:center;
   padding-top:10px;
+  background: rgba(255,255,255,.25);
 }
 
 .mouse::before{
@@ -216,12 +229,13 @@ body{
 }
 
 /* ================= RESPONSIVE ================= */
-@media(max-width:900px){
+@media(max-width:1000px){
   .headline{font-size:52px;}
 }
 
-@media(max-width:600px){
-  .navlinks{display:none;}
+@media(max-width:720px){
+  .nav{ padding:14px 16px; }
+  .navlinks{ display:none; } /* simple mobile behavior for now */
   .headline{font-size:42px;}
 }
 </style>
@@ -235,16 +249,16 @@ body{
       <div class="logo">SK</div>
     </div>
 
-    <div class="navlinks">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#research">Published Research</a>
-      <a href="#contact">Contact</a>
-    </div>
+    <div class="navright">
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#research">Published Research</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-    <div class="navactions">
       <a class="navbtn" href="#">Resume</a>
     </div>
   </nav>
