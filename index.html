@@ -894,6 +894,143 @@ footer{
   background:var(--accent);
   color:#1a1a1a;
 }
+  /* ================= CONTACT (THEME MATCHING) ================= */
+.contact{
+  max-width:1250px;
+  margin:0 auto;
+  padding:100px 120px;
+  position:relative;
+}
+
+.contact-header{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.contact-title{
+  font-size:52px;
+  margin:10px 0 0;
+}
+
+.contact-sub{
+  max-width:800px;
+  margin:14px auto 0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:16px;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:60px;
+  align-items:start;
+}
+
+/* form card */
+.contact-card{
+  background:rgba(255,255,255,.6);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:18px;
+}
+
+.field label{
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+}
+
+.field input,
+.field textarea{
+  padding:12px 14px;
+  border-radius:10px;
+  border:1px solid var(--line);
+  background:var(--white);
+  font-size:14px;
+  outline:none;
+}
+
+.field input:focus,
+.field textarea:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(245,158,11,.2);
+}
+
+.field textarea{
+  min-height:140px;
+  resize:vertical;
+}
+
+.contact-send{
+  width:100%;
+  margin-top:10px;
+  padding:14px;
+  border-radius:12px;
+  border:none;
+  font-weight:900;
+  background:var(--accent);
+  color:#1a1a1a;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.contact-send:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+/* right side */
+.direct{
+  padding-top:10px;
+}
+
+.direct h3{
+  margin:0 0 20px;
+  font-size:22px;
+}
+
+.direct-item{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin-bottom:20px;
+}
+
+.direct-label{
+  font-size:13px;
+  font-weight:800;
+  color:var(--muted);
+}
+
+.direct-link{
+  font-weight:900;
+  color:var(--text);
+  text-decoration:none;
+}
+
+.direct-link:hover{
+  color:var(--accent);
+}
+
+/* responsive */
+@media(max-width:900px){
+  .contact{
+    padding:80px 24px;
+  }
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+
 </style>
 </head>
 
@@ -1270,7 +1407,68 @@ footer{
     </div>
   </div>
 </div>
+<section class="contact" id="contact">
 
+  <div class="contact-header">
+    <p class="section-label">CONTACT</p>
+    <h2 class="contact-title">Get In Touch</h2>
+    <p class="contact-sub">
+      I’m actively seeking opportunities in Mechanical Design, Renewable Energy, Manufacturing, and Engineering Analysis.
+      Feel free to reach out!
+    </p>
+  </div>
+
+  <div class="contact-grid">
+
+    <!-- LEFT: FORM -->
+    <div class="contact-card">
+
+      <div class="field">
+        <label for="cname">Name</label>
+        <input id="cname" type="text" placeholder="Your name">
+      </div>
+
+      <div class="field">
+        <label for="cemail">Email</label>
+        <input id="cemail" type="email" placeholder="your@email.com">
+      </div>
+
+      <div class="field">
+        <label for="cmsg">Message</label>
+        <textarea id="cmsg" placeholder="Tell me about your project..."></textarea>
+      </div>
+
+      <button class="contact-send" type="button" onclick="sendContactEmail()">
+        Send Message
+      </button>
+
+    </div>
+
+    <!-- RIGHT: DIRECT CONTACT -->
+    <div class="direct">
+      <h3>Direct Contact</h3>
+
+      <div class="direct-item">
+        <div class="direct-label">Email</div>
+        <a class="direct-link" href="mailto:skhule2@asu.edu">
+          skhule2@asu.edu
+        </a>
+      </div>
+
+      <div class="direct-item">
+        <div class="direct-label">LinkedIn</div>
+        <a class="direct-link"
+           href="https://www.linkedin.com/in/shubham-khule-2059bb283"
+           target="_blank">
+          www.linkedin.com/in/shubham-khule-2059bb283
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 <script>
 function openCert(file){
   const modal = document.getElementById("certModal");
@@ -1303,6 +1501,21 @@ function closeCert(){
 document.addEventListener("keydown", (e) => {
   if(e.key === "Escape") closeCert();
 });
+</script>
+<script>
+function sendContactEmail(){
+  const name = document.getElementById("cname").value.trim();
+  const email = document.getElementById("cemail").value.trim();
+  const msg = document.getElementById("cmsg").value.trim();
+
+  const subject = encodeURIComponent("Portfolio Contact Message");
+  const body = encodeURIComponent(
+    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`
+  );
+
+  window.location.href =
+    `mailto:skhule2@asu.edu?subject=${subject}&body=${body}`;
+}
 </script>
 
 </body>
