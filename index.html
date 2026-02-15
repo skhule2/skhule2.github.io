@@ -391,6 +391,7 @@ footer{
     gap:40px;
   }
 }
+
 /* ================= SKILLS ================= */
 .skills{
   max-width:1250px;
@@ -628,7 +629,8 @@ footer{
     width:max-content;
   }
 }
-  /* ================= PUBLICATIONS ================= */
+
+/* ================= PUBLICATIONS ================= */
 .research{
   max-width:1250px;
   margin:0 auto;
@@ -714,7 +716,116 @@ footer{
     grid-template-columns:1fr;
   }
 }
-  /* ================= CERT MODAL ================= */
+
+/* ================= CERTIFICATES (NEW CARDS) ================= */
+.certificates{
+  max-width:1250px;
+  margin:0 auto;
+  padding:100px 120px;
+  text-align:center;
+}
+
+.cert-header{
+  margin-bottom:48px;
+}
+
+.cert-title{
+  font-size:56px;
+  margin:10px 0 0;
+  line-height:1.05;
+}
+
+.cert-grid{
+  max-width:1200px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px;
+}
+
+.cert-card{
+  text-align:left;
+  background:rgba(255,255,255,.60);
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease;
+  position:relative;
+}
+.cert-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 16px 34px rgba(18,24,38,.10);
+}
+
+.cert-datepill{
+  position:absolute;
+  top:14px;
+  right:14px;
+  padding:6px 10px;
+  border-radius:10px;
+  font-weight:900;
+  font-size:12px;
+  background:rgba(255,255,255,.65);
+  border:1px solid var(--line);
+  color:var(--muted);
+}
+
+.cert-preview{
+  height:210px;
+  background:rgba(18,24,38,.04);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+.cert-icon{
+  width:58px;
+  height:58px;
+  border-radius:16px;
+  border:2px solid var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:900;
+  color:var(--accent);
+  background:rgba(245,158,11,.08);
+}
+.cert-preview small{
+  color:var(--muted);
+  font-weight:800;
+}
+.cert-preview span{
+  color:var(--accent);
+  font-weight:900;
+  font-size:13px;
+}
+
+.cert-info{
+  padding:18px 18px 20px;
+}
+.cert-org{
+  font-weight:900;
+  margin:0 0 6px;
+}
+.cert-name{
+  margin:0;
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+}
+
+/* responsive certificates */
+@media(max-width:1100px){
+  .certificates{ padding:80px 24px; }
+  .cert-grid{ grid-template-columns:1fr; }
+  .cert-title{ font-size:42px; }
+}
+
+/* ================= CERT MODAL ================= */
 .cert-modal{
   position:fixed;
   inset:0;
@@ -741,10 +852,17 @@ footer{
   flex-direction:column;
 }
 
-.cert-content iframe,
-.cert-content img{
+#certViewer{
+  flex:1;
+  display:flex;
+  min-height:0;
+}
+
+#certViewer iframe,
+#certViewer img{
   flex:1;
   width:100%;
+  height:100%;
   border:none;
   border-radius:12px;
   object-fit:contain;
@@ -776,46 +894,8 @@ footer{
   background:var(--accent);
   color:#1a1a1a;
 }
-
 </style>
 </head>
-<!-- Certificate Modal -->
-<div class="cert-modal" id="certModal">
-  <div class="cert-content">
-    <div class="cert-close" onclick="closeCert()">✕</div>
-    <div id="certViewer"></div>
-
-    <div class="cert-actions">
-      <a id="downloadBtn" download>Download</a>
-      <a id="newTabBtn" target="_blank">Open in New Tab</a>
-    </div>
-  </div>
-</div>
-<script>
-function openCert(file){
-  const modal = document.getElementById("certModal");
-  const viewer = document.getElementById("certViewer");
-  const downloadBtn = document.getElementById("downloadBtn");
-  const newTabBtn = document.getElementById("newTabBtn");
-
-  viewer.innerHTML = "";
-
-  if(file.endsWith(".pdf")){
-    viewer.innerHTML = `<iframe src="${file}"></iframe>`;
-  } else {
-    viewer.innerHTML = `<img src="${file}" alt="Certificate">`;
-  }
-
-  downloadBtn.href = file;
-  newTabBtn.href = file;
-
-  modal.classList.add("active");
-}
-
-function closeCert(){
-  document.getElementById("certModal").classList.remove("active");
-}
-</script>
 
 <body>
 
@@ -890,6 +970,7 @@ function closeCert(){
 
   </div>
 </section>
+
 <section class="skills" id="skills">
   <div class="skills-header">
     <div class="skills-kicker">SKILLS</div>
@@ -969,7 +1050,6 @@ function closeCert(){
   </div>
 </section>
 
-<!-- ================= EDUCATION (NEW SECTION) ================= -->
 <section class="education" id="education">
   <p class="section-label">BACKGROUND</p>
 
@@ -1022,32 +1102,106 @@ function closeCert(){
   </div>
 </section>
 
-<section id="certificates">
-  <h2>Certificates</h2>
-  <div class="card">
-    <ul>
-      <li>Certificate Name — Issuer (Year) — <a href="#">Link</a></li>
-      <li>Certificate Name — Issuer (Year) — <a href="#">Link</a></li>
-      <li>Certificate Name — Issuer (Year) — <a href="#">Link</a></li>
-    </ul>
+<!-- ================= CERTIFICATES (FIXED) ================= -->
+<section class="certificates" id="certificates">
+  <div class="cert-header">
+    <p class="section-label">ACHIEVEMENTS</p>
+    <h2 class="cert-title">Certifications</h2>
+  </div>
+
+  <div class="cert-grid">
+
+    <div class="cert-card" onclick="openCert('AutoCADsolidworks+certificate.pdf')" role="button" tabindex="0">
+      <div class="cert-datepill">Sept 2022</div>
+      <div class="cert-preview">
+        <div class="cert-icon">PDF</div>
+        <small>PDF Document</small>
+        <span>Click to view</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-org">Bentley Institute</p>
+        <p class="cert-name">2D/3D CAD Modeling of Building Design</p>
+      </div>
+    </div>
+
+    <div class="cert-card" onclick="openCert('Certificate+(3)_compressed.pdf')" role="button" tabindex="0">
+      <div class="cert-datepill">Feb 2024</div>
+      <div class="cert-preview">
+        <div class="cert-icon">PDF</div>
+        <small>PDF Document</small>
+        <span>Click to view</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-org">CAD Desk</p>
+        <p class="cert-name">Diploma Course in Mechanical CAD – AutoCAD, SolidWorks</p>
+      </div>
+    </div>
+
+    <div class="cert-card" onclick="openCert('ishrae+certificate.pdf')" role="button" tabindex="0">
+      <div class="cert-datepill">2023–24</div>
+      <div class="cert-preview">
+        <div class="cert-icon">PDF</div>
+        <small>PDF Document</small>
+        <span>Click to view</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-org">ISHRAE</p>
+        <p class="cert-name">Student Membership Certificate, Terna Engineering College</p>
+      </div>
+    </div>
+
+    <div class="cert-card" onclick="openCert('Fusion+360+certificate.pdf')" role="button" tabindex="0">
+      <div class="cert-datepill">July 2023</div>
+      <div class="cert-preview">
+        <div class="cert-icon">PDF</div>
+        <small>PDF Document</small>
+        <span>Click to view</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-org">Udemy</p>
+        <p class="cert-name">Fusion 360 Beginners Course</p>
+      </div>
+    </div>
+
+    <div class="cert-card" onclick="openCert('psj.jpg')" role="button" tabindex="0">
+      <div class="cert-datepill">PSJ</div>
+      <div class="cert-preview">
+        <div class="cert-icon">IMG</div>
+        <small>Certificate Image</small>
+        <span>Click to view</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-org">Certificate</p>
+        <p class="cert-name">PSJ Certificate (Image)</p>
+      </div>
+    </div>
+
+    <div class="cert-card" onclick="openCert('IRJET-Shubham+Khule.jpg')" role="button" tabindex="0">
+      <div class="cert-datepill">IRJET</div>
+      <div class="cert-preview">
+        <div class="cert-icon">IMG</div>
+        <small>Certificate Image</small>
+        <span>Click to view</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-org">IRJET</p>
+        <p class="cert-name">Publication Certificate (Image)</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section class="research" id="research">
-
   <div class="research-header">
     <p class="section-label">RESEARCH</p>
     <h2 class="research-title">Publications</h2>
   </div>
 
   <div class="research-grid">
-
-    <!-- Paper 1 -->
     <div class="pub-card">
       <div class="pub-journal">Positif Journal · Vol 22, Issue 11</div>
-      <div class="pub-title">
-        Review: Solar Water Heater with and without Tracking System
-      </div>
+      <div class="pub-title">Review: Solar Water Heater with and without Tracking System</div>
       <div class="pub-date">November 2022</div>
 
       <ul class="pub-list">
@@ -1064,12 +1218,9 @@ function closeCert(){
       </a>
     </div>
 
-    <!-- Paper 2 -->
     <div class="pub-card">
       <div class="pub-journal">IRJET · Vol 09, Issue 07</div>
-      <div class="pub-title">
-        Design of Solar Parabolic Trough Water Heater
-      </div>
+      <div class="pub-title">Design of Solar Parabolic Trough Water Heater</div>
       <div class="pub-date">July 2022</div>
 
       <ul class="pub-list">
@@ -1085,10 +1236,8 @@ function closeCert(){
          Read Paper
       </a>
     </div>
-
   </div>
 </section>
-
 
 <section id="contact">
   <h2>Contact</h2>
@@ -1102,7 +1251,52 @@ function closeCert(){
   © 2026 Shubham Khule
 </footer>
 
+<!-- Certificate Modal -->
+<div class="cert-modal" id="certModal" onclick="if(event.target.id==='certModal') closeCert()">
+  <div class="cert-content">
+    <div class="cert-close" onclick="closeCert()">✕</div>
+    <div id="certViewer"></div>
+
+    <div class="cert-actions">
+      <a id="downloadBtn" download>Download</a>
+      <a id="newTabBtn" target="_blank">Open in New Tab</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function openCert(file){
+  const modal = document.getElementById("certModal");
+  const viewer = document.getElementById("certViewer");
+  const downloadBtn = document.getElementById("downloadBtn");
+  const newTabBtn = document.getElementById("newTabBtn");
+
+  viewer.innerHTML = "";
+
+  const lower = file.toLowerCase();
+  if(lower.endsWith(".pdf")){
+    viewer.innerHTML = `<iframe src="${file}"></iframe>`;
+  } else {
+    viewer.innerHTML = `<img src="${file}" alt="Certificate">`;
+  }
+
+  downloadBtn.href = file;
+  newTabBtn.href = file;
+
+  modal.classList.add("active");
+}
+
+function closeCert(){
+  const modal = document.getElementById("certModal");
+  const viewer = document.getElementById("certViewer");
+  modal.classList.remove("active");
+  viewer.innerHTML = "";
+}
+
+document.addEventListener("keydown", (e) => {
+  if(e.key === "Escape") closeCert();
+});
+</script>
+
 </body>
 </html>
-
-
