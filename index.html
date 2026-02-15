@@ -1030,6 +1030,38 @@ footer{
     grid-template-columns:1fr;
   }
 }
+/* icon row layout */
+.direct-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:22px;
+}
+
+/* icon box */
+.icon-box{
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(245,158,11,.12);
+  border:1px solid rgba(245,158,11,.25);
+  font-size:18px;
+}
+
+/* make link bold + clean */
+.direct-link{
+  font-weight:900;
+  color:var(--text);
+  text-decoration:none;
+  transition:.2s ease;
+}
+
+.direct-link:hover{
+  color:var(--accent);
+}
 
 </style>
 </head>
@@ -1383,14 +1415,6 @@ footer{
   </div>
 </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="card">
-    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/skhule2" target="_blank">github.com/skhule2</a></p>
-  </div>
-</section>
-
 <!-- Certificate Modal -->
 <div class="cert-modal" id="certModal" onclick="if(event.target.id==='certModal') closeCert()">
   <div class="cert-content">
@@ -1440,29 +1464,32 @@ footer{
 
     </div>
 
-    <!-- RIGHT: DIRECT CONTACT -->
-    <div class="direct">
-      <h3>Direct Contact</h3>
+  <div class="direct">
+  <h3>Direct Contact</h3>
 
-      <div class="direct-item">
-        <div class="direct-label">Email</div>
-        <a class="direct-link" href="mailto:skhule2@asu.edu">
-          skhule2@asu.edu
-        </a>
-      </div>
-
-      <div class="direct-item">
-        <div class="direct-label">LinkedIn</div>
-        <a class="direct-link"
-           href="https://www.linkedin.com/in/shubham-khule-2059bb283"
-           target="_blank">
-          www.linkedin.com/in/shubham-khule-2059bb283
-        </a>
-      </div>
-
+  <div class="direct-row">
+    <div class="icon-box">✉️</div>
+    <div>
+      <div class="direct-label">Email</div>
+      <a class="direct-link" href="mailto:skhule2@asu.edu">
+        skhule2@asu.edu
+      </a>
     </div>
-
   </div>
+
+  <div class="direct-row">
+    <div class="icon-box">in</div>
+    <div>
+      <div class="direct-label">LinkedIn</div>
+      <a class="direct-link"
+         href="https://www.linkedin.com/in/shubham-khule-2059bb283"
+         target="_blank">
+         LinkedIn Profile
+      </a>
+    </div>
+  </div>
+
+</div>
 
 </section>
 <script>
