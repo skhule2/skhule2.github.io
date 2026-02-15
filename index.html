@@ -714,8 +714,108 @@ footer{
     grid-template-columns:1fr;
   }
 }
+  /* ================= CERT MODAL ================= */
+.cert-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(18,24,38,.75);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.cert-modal.active{
+  display:flex;
+}
+
+.cert-content{
+  width:90%;
+  max-width:900px;
+  height:85vh;
+  background:#ffffff;
+  border-radius:18px;
+  padding:20px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+
+.cert-content iframe,
+.cert-content img{
+  flex:1;
+  width:100%;
+  border:none;
+  border-radius:12px;
+  object-fit:contain;
+}
+
+.cert-close{
+  position:absolute;
+  top:14px;
+  right:18px;
+  font-size:22px;
+  font-weight:900;
+  cursor:pointer;
+  color:var(--text);
+}
+
+.cert-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:12px;
+  margin-top:12px;
+}
+
+.cert-actions a{
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:800;
+  font-size:14px;
+  text-decoration:none;
+  background:var(--accent);
+  color:#1a1a1a;
+}
+
 </style>
 </head>
+<!-- Certificate Modal -->
+<div class="cert-modal" id="certModal">
+  <div class="cert-content">
+    <div class="cert-close" onclick="closeCert()">✕</div>
+    <div id="certViewer"></div>
+
+    <div class="cert-actions">
+      <a id="downloadBtn" download>Download</a>
+      <a id="newTabBtn" target="_blank">Open in New Tab</a>
+    </div>
+  </div>
+</div>
+<script>
+function openCert(file){
+  const modal = document.getElementById("certModal");
+  const viewer = document.getElementById("certViewer");
+  const downloadBtn = document.getElementById("downloadBtn");
+  const newTabBtn = document.getElementById("newTabBtn");
+
+  viewer.innerHTML = "";
+
+  if(file.endsWith(".pdf")){
+    viewer.innerHTML = `<iframe src="${file}"></iframe>`;
+  } else {
+    viewer.innerHTML = `<img src="${file}" alt="Certificate">`;
+  }
+
+  downloadBtn.href = file;
+  newTabBtn.href = file;
+
+  modal.classList.add("active");
+}
+
+function closeCert(){
+  document.getElementById("certModal").classList.remove("active");
+}
+</script>
 
 <body>
 
