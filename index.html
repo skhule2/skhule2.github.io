@@ -628,6 +628,92 @@ footer{
     width:max-content;
   }
 }
+  /* ================= PUBLICATIONS ================= */
+.research{
+  max-width:1250px;
+  margin:0 auto;
+  padding:100px 120px;
+  position:relative;
+  text-align:center;
+}
+
+.research-header{
+  margin-bottom:50px;
+}
+
+.research-title{
+  font-size:52px;
+  margin:10px 0 0;
+}
+
+.research-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.pub-card{
+  text-align:left;
+  background:rgba(255,255,255,.6);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px;
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+}
+
+.pub-journal{
+  font-size:14px;
+  font-weight:800;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+
+.pub-title{
+  font-size:20px;
+  font-weight:900;
+  margin:0 0 6px;
+}
+
+.pub-date{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.pub-list{
+  padding-left:18px;
+  margin:0 0 20px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+.pub-btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:12px;
+  background:var(--accent);
+  color:#1a1a1a;
+  font-weight:800;
+  text-decoration:none;
+  transition:.25s ease;
+}
+
+.pub-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* responsive */
+@media(max-width:1000px){
+  .research{
+    padding:80px 24px;
+  }
+  .research-grid{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 
@@ -847,12 +933,62 @@ footer{
   </div>
 </section>
 
-<section id="research">
-  <h2>Published Research</h2>
-  <div class="card">
-    <p>Add your research papers here with title, journal, year, and link.</p>
+<section class="research" id="research">
+
+  <div class="research-header">
+    <p class="section-label">RESEARCH</p>
+    <h2 class="research-title">Publications</h2>
+  </div>
+
+  <div class="research-grid">
+
+    <!-- Paper 1 -->
+    <div class="pub-card">
+      <div class="pub-journal">Positif Journal · Vol 22, Issue 11</div>
+      <div class="pub-title">
+        Review: Solar Water Heater with and without Tracking System
+      </div>
+      <div class="pub-date">November 2022</div>
+
+      <ul class="pub-list">
+        <li>Literature review of 27 scholarly articles on solar water heaters</li>
+        <li>Analyzed tracking vs non-tracking systems</li>
+        <li>Concluded tracking systems improve efficiency</li>
+        <li>Arduino-based tracking preferred for compactness and efficiency</li>
+      </ul>
+
+      <a href="https://drive.google.com/file/d/1yMA7c4xL0zlcnNfeNNsTPc_BHoRIZcQ2/preview"
+         target="_blank"
+         class="pub-btn">
+         Read Paper
+      </a>
+    </div>
+
+    <!-- Paper 2 -->
+    <div class="pub-card">
+      <div class="pub-journal">IRJET · Vol 09, Issue 07</div>
+      <div class="pub-title">
+        Design of Solar Parabolic Trough Water Heater
+      </div>
+      <div class="pub-date">July 2022</div>
+
+      <ul class="pub-list">
+        <li>Designed and fabricated parabolic trough water heater</li>
+        <li>Achieved 53% thermal efficiency at 0.3 LPM flow rate</li>
+        <li>Low-cost solution under Rs. 2000</li>
+        <li>Used copper receiver tube with aluminum reflective trough</li>
+      </ul>
+
+      <a href="https://drive.google.com/file/d/1nV1a6Fecl1bPdv4rIGH6qvMFgKSnD9en/preview"
+         target="_blank"
+         class="pub-btn">
+         Read Paper
+      </a>
+    </div>
+
   </div>
 </section>
+
 
 <section id="contact">
   <h2>Contact</h2>
