@@ -7,14 +7,12 @@
 
 <style>
 :root{
-  --bg:#ffffff;
-  --bg2:#f4f7f8;
-  --text:#12343b;
+  --bg:#fbf6ef;
+  --bg2:#f6efe6;
+  --text:#121826;
   --muted:#5b677a;
-  --line:#e3e8ea;
-  --accent:#e1b382;      /* Sand Tan */
-  --dark:#2d545e;        /* Night Blue */
-  --dark-strong:#12343b; /* Night Blue Shadow */
+  --line:#e7ded2;
+  --accent:#f59e0b;
   --white:#ffffff;
 }
 
@@ -31,9 +29,27 @@ body{
 .top{
   min-height:95vh;
   position:relative;
-  background:var(--dark);
-  color:#ffffff;
   overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+
+.top::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("OIP.jpg") center/cover no-repeat;
+  opacity:.98;
+  filter:grayscale(40%) contrast(105%);
+  z-index:0;
+}
+
+.top::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(251,246,239,.92),rgba(246,239,230,.94));
+  z-index:1;
+}
 
 .nav,.hero{position:relative;z-index:2;}
 
@@ -140,9 +156,8 @@ body{
   display:inline-block;
   padding:8px 16px;
   border-radius:999px;
-  background:rgba(255,255,255,.08);
-border:1px solid rgba(255,255,255,.25);
-color:#ffffff;
+  background:rgba(255,255,255,.55);
+  border:1px solid #d7cbbb;
   font-size:18px;
   font-weight:800;
   margin-bottom:14px;
@@ -160,8 +175,8 @@ color:#ffffff;
   font-size:76px;
   line-height:.95;
   margin:0;
-  color:#ffffff;
 }
+
 .accent{color:var(--accent);}
 
 .subhead{
@@ -169,7 +184,7 @@ color:#ffffff;
   margin:26px auto 0;
   font-size:18px;
   line-height:1.75;
-  color:rgba(255,255,255,.85);
+  color:var(--muted);
 }
 
 .cta{
@@ -193,9 +208,9 @@ color:#ffffff;
 }
 
 .btn.ghost{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.25);
-  color:#ffffff;
+  background:rgba(255,255,255,.55);
+  border:1px solid #d7cbbb;
+  color:var(--text);
 }
 
 /* Scroll mouse */
@@ -622,7 +637,7 @@ footer{
 
         <div class="edu-meta">
           <div class="row loc">University of Mumbai (Terna College of Engineering), Navi Mumbai</div>
-          <div class="row gpa">GPA:3.2/4.00</div>
+          <div class="row gpa">GPA: 7.8/10.0</div>
         </div>
 
         <p class="edu-desc">
@@ -632,6 +647,8 @@ footer{
     </div>
 
   </div>
+</section>
+
 <section id="certificates">
   <h2>Certificates</h2>
   <div class="card">
