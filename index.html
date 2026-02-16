@@ -453,6 +453,138 @@ footer{
   .projects{ padding:80px 24px; }
   .project-hero-card img{ height:280px; }
 }
+/* ================= PROJECTS ================= */
+.projects{
+  max-width:1250px;
+  margin:0 auto;
+  padding:100px 120px;
+  position:relative;
+  text-align:center;
+}
+
+.projects-header{ margin-bottom:50px; }
+
+.projects-title{
+  font-size:52px;
+  margin:10px 0 0;
+  line-height:1.05;
+}
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.project-card{
+  text-align:left;
+  background:rgba(255,255,255,.6);
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+}
+
+.project-img{
+  position:relative;
+  height:260px;
+  overflow:hidden;
+}
+
+.project-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* subtle overlay so text can sit on image if needed later */
+.project-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(18,24,38,.10), rgba(18,24,38,.40));
+}
+
+.project-body{ padding:22px 24px 24px; }
+
+.project-tag{
+  display:inline-block;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.2em;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+
+.project-name{
+  margin:0 0 10px;
+  font-size:22px;
+  font-weight:900;
+}
+
+.project-desc{
+  margin:0 0 14px;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14.5px;
+}
+
+.project-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:0 0 18px;
+}
+
+.project-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid #d7cbbb;
+  background:rgba(255,255,255,.55);
+  color:var(--text);
+  font-size:12.5px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.project-badge::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:var(--accent);
+  opacity:.9;
+}
+
+.project-btn{
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:12px;
+  background:var(--accent);
+  color:#1a1a1a;
+  font-weight:900;
+  text-decoration:none;
+  transition:.25s ease;
+}
+
+.project-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* responsive */
+@media(max-width:1000px){
+  .projects{ padding:80px 24px; }
+  .projects-grid{ grid-template-columns:1fr; }
+  .projects-title{ font-size:40px; }
+  .project-img{ height:230px; }
+}
 
 /* orange side lines (same vibe as About) */
 .skills::before,
@@ -1224,7 +1356,44 @@ footer{
     </div>
   </div>
 </section>
+<section class="projects" id="projects">
+  <div class="projects-header">
+    <p class="section-label">PORTFOLIO</p>
+    <h2 class="projects-title">Featured <span class="muted">Projects</span></h2>
+  </div>
 
+  <div class="projects-grid">
+
+    <!-- Project: Duck Curve -->
+    <div class="project-card">
+      <div class="project-img">
+        <!-- Put your duck curve hero image in repo and use exact filename here -->
+        <img src="Duck-Curve-Explainer.jpg">
+      </div>
+
+      <div class="project-body">
+        <div class="project-tag">GRID ANALYTICS</div>
+        <h3 class="project-name">Solar Duck Curve Modeling & Ramp Mitigation</h3>
+
+        <p class="project-desc">
+          Modeled demand curve behavior with solar penetration and evaluated battery + demand response strategies to reduce evening ramp.
+        </p>
+
+        <div class="project-badges">
+          <span class="project-badge">MATLAB</span>
+          <span class="project-badge">Demand Response</span>
+          <span class="project-badge">Battery Analysis</span>
+        </div>
+
+        <a class="project-btn" href="duck-curve.html">View Project</a>
+      </div>
+    </div>
+
+    <!-- Keep your Hybrid Vehicle project card here too (same style) -->
+    <!-- (Leave it as-is if you already built it) -->
+
+  </div>
+</section>
 
 <section class="skills" id="skills">
   <div class="skills-header">
