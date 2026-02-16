@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hybrid Solar & Wind EV Charging | Shubham Khule</title>
+
+<style>
+:root{
+  --bg:#fbf6ef;
+  --bg2:#f6efe6;
+  --text:#121826;
+  --muted:#5b677a;
+  --line:#e7ded2;
+  --accent:#f59e0b;
+  --white:#ffffff;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* top bar */
+.topbar{
+  max-width:1250px;
+  margin:0 auto;
+  padding:22px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:800;
+}
+.back:hover{ color:var(--text); }
+
+.back::before{
+  content:"←";
+  font-weight:900;
+  color:var(--accent);
+}
+
+/* hero */
+.hero{
+  max-width:1250px;
+  margin:0 auto;
+  padding:10px 24px 40px;
+}
+
+.hero-card{
+  border-radius:22px;
+  overflow:hidden;
+  background:rgba(255,255,255,.6);
+  border:1px solid var(--line);
+  box-shadow:0 20px 50px rgba(18,24,38,.08);
+}
+
+.hero-card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+}
+
+.hero-body{
+  padding:28px 28px 30px;
+}
+
+.kicker{
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.35em;
+  color:var(--accent);
+  margin:0 0 10px;
+}
+
+.h1{
+  font-size:44px;
+  line-height:1.08;
+  margin:0 0 10px;
+}
+.sub{
+  color:var(--muted);
+  line-height:1.8;
+  margin:0;
+  max-width:950px;
+}
+
+/* content */
+.section{
+  max-width:1250px;
+  margin:0 auto;
+  padding:0 24px 90px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap:28px;
+  align-items:start;
+}
+
+.card{
+  background:rgba(255,255,255,.6);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+}
+
+.h2{
+  margin:0 0 12px;
+  font-size:18px;
+  font-weight:900;
+}
+
+.p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.85;
+  font-size:15px;
+}
+
+.list{
+  margin:12px 0 0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.85;
+  font-size:15px;
+}
+
+.meta{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:6px;
+  color:var(--muted);
+  font-weight:800;
+  font-size:14px;
+}
+.meta .row{ display:flex; gap:10px; align-items:center; }
+.meta .row strong{ color:var(--text); }
+
+.tagrow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid #d7cbbb;
+  background:rgba(255,255,255,.55);
+  color:var(--text);
+  font-size:13px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.tag::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--accent);
+  opacity:.9;
+}
+
+/* gallery */
+.gallery{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:12px;
+}
+.ph{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.55);
+  height:170px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--muted);
+  font-weight:900;
+}
+
+.note{
+  margin-top:10px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+/* mobile */
+@media(max-width:1000px){
+  .hero-card img{ height:280px; }
+  .h1{ font-size:34px; }
+  .grid{ grid-template-columns:1fr; }
+  .gallery{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  <a class="back" href="index.html">Back to Home</a>
+</div>
+
+<section class="hero">
+  <div class="hero-card">
+    <!-- Put your hero image file name here (must be in your repo) -->
+    <img src="ev-hero.jpg" alt="Hybrid Solar and Wind Assisted EV Charging System">
+    <div class="hero-body">
+      <p class="kicker">PORTFOLIO</p>
+      <h1 class="h1">Hybrid Solar & Wind Assisted EV Charging System</h1>
+      <p class="sub">
+        Team project (4 members) completed in 2024. Designed and built a hybrid renewable charging prototype
+        combining solar PV and wind energy harvesting to support EV battery charging via an auxiliary battery system.
+      </p>
+
+      <div class="tagrow">
+        <span class="tag">SolidWorks CAD</span>
+        <span class="tag">Prototype Build</span>
+        <span class="tag">Solar PV</span>
+        <span class="tag">Wind Turbine</span>
+        <span class="tag">Testing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid">
+
+    <!-- LEFT -->
+    <div class="card">
+      <div class="h2">Project Overview</div>
+      <p class="p">
+        Developed a hybrid renewable system to generate electrical energy from solar and wind inputs.
+        The setup uses a turbine-driven alternator and a solar panel with a charge controller to charge an auxiliary battery,
+        reducing dependence on conventional charging and demonstrating feasibility for range extension / auxiliary power support.
+      </p>
+
+      <div style="height:14px"></div>
+
+      <div class="h2">Your Role</div>
+      <ul class="list">
+        <li><strong>CAD Modeling:</strong> designed the full CAD model independently (SolidWorks).</li>
+        <li><strong>Design Calculations:</strong> supported system calculations and sizing.</li>
+        <li><strong>Fabrication:</strong> built the prototype collaboratively with the team.</li>
+        <li><strong>Electrical Wiring:</strong> assisted with wiring and connections.</li>
+      </ul>
+
+      <div style="height:14px"></div>
+
+      <div class="h2">Design Highlights</div>
+      <ul class="list">
+        <li>Hybrid input: solar PV + wind turbine/alternator.</li>
+        <li>Energy stored in an auxiliary battery for practical use.</li>
+        <li>Focus on manufacturable design + testable prototype.</li>
+      </ul>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="card">
+      <div class="h2">Results & Observations</div>
+      <p class="p">
+        You mentioned the measured performance (voltage increase and charging time improvement) is in your report’s observation section.
+        We’ll plug your exact values here once you paste them (so the numbers stay accurate).
+      </p>
+
+      <div style="height:12px"></div>
+
+      <div class="h2">Challenges</div>
+      <ul class="list">
+        <li>Mechanical alignment & coupling between turbine shaft and alternator.</li>
+        <li>Electrical regulation and safe connections during testing.</li>
+        <li>Balancing stability, efficiency, and real-world constraints.</li>
+      </ul>
+
+      <div style="height:14px"></div>
+
+      <div class="h2">CAD + Prototype Images</div>
+      <div class="gallery">
+        <div class="ph">CAD Image 1</div>
+        <div class="ph">CAD Image 2</div>
+        <div class="ph">Prototype 1</div>
+        <div class="ph">Prototype 2</div>
+      </div>
+      <div class="note">
+        Replace these placeholders with your real image files from your GitHub repo (PNG/JPG),
+        and I’ll format them cleanly (lightbox optional).
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
