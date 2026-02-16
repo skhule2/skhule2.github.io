@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SiC Packaging Research | Shubham Khule</title>
+
+<style>
+:root{
+  --bg:#fbf6ef;
+  --bg2:#f6efe6;
+  --text:#121826;
+  --muted:#5b677a;
+  --line:#e7ded2;
+  --accent:#f59e0b;
+  --white:#ffffff;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+a{color:inherit;}
+
+.nav{
+  width:100%;
+  padding:18px 42px;
+  display:flex;
+  align-items:center;
+  border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.45);
+  backdrop-filter: blur(6px);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.brand{display:flex; align-items:center; gap:12px;}
+
+.logo{
+  width:46px;height:46px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:15px;letter-spacing:.18em;
+  color:var(--text);
+  background:linear-gradient(135deg,rgba(245,158,11,.35),rgba(245,158,11,.08));
+  border:1px solid rgba(18,24,38,.18);
+}
+
+.backlink{
+  margin-left:auto;
+  text-decoration:none;
+  font-weight:800;
+  color:var(--muted);
+}
+.backlink:hover{ color:var(--text); }
+
+.page{
+  max-width:1100px;
+  margin:0 auto;
+  padding:44px 24px 80px;
+}
+
+.kicker{
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.35em;
+  color:var(--accent);
+  margin:0 0 10px;
+}
+
+.h1{
+  font-size:46px;
+  margin:0 0 12px;
+  line-height:1.08;
+}
+
+.sub{
+  color:var(--muted);
+  line-height:1.8;
+  max-width:900px;
+  margin:0 0 26px;
+}
+
+.hero{
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(255,255,255,.55);
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+}
+
+.hero img{
+  width:100%;
+  display:block;
+  max-height:440px;
+  object-fit:cover;
+}
+
+.hero-bar{
+  padding:18px 20px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.pills{display:flex; flex-wrap:wrap; gap:10px;}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid #d7cbbb;
+  background:rgba(255,255,255,.55);
+  color:var(--text);
+  font-size:13px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.pill::before{
+  content:"";
+  width:8px;height:8px;border-radius:999px;
+  background:var(--accent);
+  opacity:.9;
+}
+
+.actions{display:flex; gap:12px; flex-wrap:wrap;}
+
+.btn{
+  display:inline-block;
+  padding:12px 16px;
+  border-radius:12px;
+  background:var(--accent);
+  color:#1a1a1a;
+  font-weight:900;
+  text-decoration:none;
+  border:1px solid rgba(0,0,0,.12);
+}
+.btn.ghost{
+  background:rgba(255,255,255,.65);
+  color:var(--text);
+  border:1px solid var(--line);
+}
+
+.grid{
+  margin-top:26px;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:18px;
+}
+
+.card{
+  background:rgba(255,255,255,.55);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+}
+
+.card h2{
+  margin:0 0 12px;
+  font-size:18px;
+}
+
+.card p, .card li{
+  color:var(--muted);
+  line-height:1.8;
+  font-size:14.5px;
+}
+
+.card ul{
+  margin:0;
+  padding-left:18px;
+}
+
+.table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.6);
+}
+
+.table th, .table td{
+  padding:12px 12px;
+  border-bottom:1px solid var(--line);
+  font-size:13.5px;
+  color:var(--muted);
+  vertical-align:top;
+}
+.table th{
+  color:var(--text);
+  text-align:left;
+  font-weight:900;
+  background:rgba(245,158,11,.10);
+}
+.table tr:last-child td{ border-bottom:none; }
+
+.gallery{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:14px;
+}
+
+.ph{
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.55);
+  overflow:hidden;
+}
+.ph img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  display:block;
+}
+.cap{
+  padding:10px 12px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.footer{
+  margin-top:22px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+@media(max-width:900px){
+  .grid{ grid-template-columns:1fr; }
+  .h1{ font-size:38px; }
+  .nav{ padding:16px 18px; }
+  .gallery{ grid-template-columns:1fr; }
+  .ph img{ height:240px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="brand">
+    <div class="logo">SK</div>
+  </div>
+  <a class="backlink" href="index.html#projects">← Back to Projects</a>
+</nav>
+
+<main class="page">
+
+  <p class="kicker">SOLO RESEARCH · SEMICONDUCTOR PACKAGING</p>
+  <h1 class="h1">Double-Sided Cooling & Wire-Bondless SiC Power Modules for Solar Inverters</h1>
+  <p class="sub">
+    Research project for my Fundamentals of Semiconductor Packaging course focused on how advanced module packaging
+    improves thermal performance, reduces parasitic inductance, and increases reliability for SiC-based power modules in solar inverters.
+  </p>
+
+  <section class="hero">
+    <img src="sic-packaging-hero.jpg" alt="SiC Packaging Project Hero">
+    <div class="hero-bar">
+      <div class="pills">
+        <span class="pill">Double-Sided Cooling</span>
+        <span class="pill">Wire-Bondless</span>
+        <span class="pill">Solar Inverters</span>
+        <span class="pill">Thermal + Reliability</span>
+      </div>
+
+      <div class="actions">
+        <!-- Put your PPT PDF in repo and name it exactly like below (recommended) -->
+        <a class="btn" href="Shubham%20SP%20Tech%20PPT.pdf" target="_blank">Open PPT</a>
+        <a class="btn ghost" href="Shubham%20SP%20Tech%20PPT.pdf" download>Download PPT</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid">
+
+    <div class="card">
+      <h2>Objective</h2>
+      <p>
+        Analyze advanced semiconductor packaging techniques that enhance the thermal, electrical,
+        and reliability performance of SiC-based power modules used in solar inverters.
+      </p>
+
+      <h2 style="margin-top:18px;">What I did</h2>
+      <ul>
+        <li>Reviewed literature on double-sided cooling and wire-bondless module designs.</li>
+        <li>Compared performance drivers: thermal resistance (R<sub>thJC</sub>), parasitic inductance, and reliability failure modes.</li>
+        <li>Summarized packaging materials used in high-performance modules (Ag sinter, DBC/AMB, TIMs).</li>
+        <li>Presented practical impact on solar inverter efficiency, power density, and lifetime.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Key Takeaways</h2>
+      <ul>
+        <li><b>Double-sided cooling</b> removes heat from both sides of the die, lowering junction temperature and thermal resistance.</li>
+        <li><b>Wire-bondless interconnects</b> reduce inductance, overshoot, and bond-wire fatigue issues.</li>
+        <li>Combined approach supports compact, efficient, high-reliability solar inverters.</li>
+      </ul>
+
+      <h2 style="margin-top:18px;">Highlighted Metrics (from literature)</h2>
+      <ul>
+        <li>Junction temperature reduction: <b>~25–45°C</b> vs single-sided cooled modules (same load).</li>
+        <li>Parasitic inductance: <b>~4–5 nH</b> wire-bondless vs <b>~15–20 nH</b> conventional.</li>
+        <li>Reliability: up to <b>~3× longer</b> power-cycling lifetime (reported).</li>
+      </ul>
+    </div>
+
+    <div class="card" style="grid-column:1 / -1;">
+      <h2>Traditional vs Advanced Packaging (Summary)</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Traditional Wire-Bonded</th>
+            <th>Advanced (DSC + Wire-Bondless)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cooling</td>
+            <td>Single-sided (bottom only)</td>
+            <td>Double-sided (top + bottom)</td>
+          </tr>
+          <tr>
+            <td>Interconnect</td>
+            <td>Al bond wires</td>
+            <td>Planar Cu pillars / sintered joints</td>
+          </tr>
+          <tr>
+            <td>Thermal Resistance (R<sub>thJC</sub>)</td>
+            <td>Higher</td>
+            <td>Lower</td>
+          </tr>
+          <tr>
+            <td>Stray Inductance</td>
+            <td>Higher (~15–20 nH)</td>
+            <td>Lower (~4–5 nH)</td>
+          </tr>
+          <tr>
+            <td>Reliability</td>
+            <td>Bond-wire lift-off + fatigue</td>
+            <td>No bond wires → improved lifetime</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="footer">
+        Note: Values are literature-reported ranges used in the presentation and may vary by module design and test conditions.
+      </p>
+    </div>
+
+    <div class="card" style="grid-column:1 / -1;">
+      <h2>Figures / Slides Gallery (Optional)</h2>
+      <p>
+        If you export a few key slides as images (JPG/PNG) and add them to your repo, drop the filenames below.
+        This keeps the page fast and clean.
+      </p>
+
+      <div class="gallery">
+        <div class="ph">
+          <img src="sic-slide-thermal.jpg" alt="Thermal benefits slide">
+          <div class="cap">Thermal Benefits (exported slide image)</div>
+        </div>
+        <div class="ph">
+          <img src="sic-slide-inductance.jpg" alt="Electrical benefits slide">
+          <div class="cap">Electrical Benefits (exported slide image)</div>
+        </div>
+      </div>
+ </section>
+
+</main>
+
+</body>
+</html>
