@@ -24,7 +24,9 @@ body{
   background:var(--bg);
   color:var(--text);
 }
-
+html{
+  scroll-behavior:smooth;
+}
 /* ================= HERO + BACKGROUND ================= */
 .top{
   min-height:95vh;
@@ -398,6 +400,58 @@ footer{
   margin:0 auto;
   position:relative;
   padding:100px 120px;
+}
+/* ================= PROJECT HERO CARD ================= */
+
+.projects{
+  max-width:1250px;
+  margin:0 auto;
+  padding:100px 120px;
+}
+
+.project-hero-card{
+  max-width:1100px;
+  margin:0 auto;
+  border-radius:22px;
+  overflow:hidden;
+  background:rgba(255,255,255,.6);
+  border:1px solid var(--line);
+  box-shadow:0 20px 50px rgba(18,24,38,.08);
+}
+
+.project-hero-card img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+}
+
+.project-hero-content{
+  padding:30px;
+}
+
+.project-category{
+  font-size:13px;
+  font-weight:800;
+  color:var(--accent);
+  margin-bottom:10px;
+}
+
+.project-title{
+  font-size:26px;
+  font-weight:900;
+  margin:0 0 12px;
+}
+
+.project-short{
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:22px;
+}
+
+@media(max-width:1000px){
+  .projects{ padding:80px 24px; }
+  .project-hero-card img{ height:280px; }
 }
 
 /* orange side lines (same vibe as About) */
@@ -1134,6 +1188,101 @@ footer{
     <div class="headshot-window">
       <div class="headshot-inner">
         <span>HEADSHOT</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ================= PROJECTS ================= -->
+<section class="projects" id="projects">
+
+  <div class="skills-header">
+    <div class="skills-kicker">PORTFOLIO</div>
+    <h2 class="skills-title">Featured <span class="muted">Project</span></h2>
+  </div>
+
+  <div class="project-hero-card">
+
+    <img src="ev-hero.jpg" alt="Hybrid Solar Wind EV Charging Project">
+
+    <div class="project-hero-content">
+      <div class="project-category">Renewable Energy | EV Systems</div>
+
+      <h3 class="project-title">
+        Hybrid Solar & Wind Assisted EV Charging System
+      </h3>
+
+      <p class="project-short">
+        Designed and fabricated a hybrid renewable energy charging prototype
+        integrating solar PV and wind turbine systems to improve EV battery charging efficiency.
+      </p>
+
+      <a href="#project-hybrid" class="pub-btn">
+        View Project
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- ================= PROJECT DETAILS ================= -->
+<section id="project-hybrid" class="education">
+
+  <p class="section-label">PROJECT DETAILS</p>
+  <h2 class="education-title">
+    Hybrid Solar & Wind Assisted EV Charging System
+  </h2>
+
+  <div class="edu-list">
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-date">Completed 2024</div>
+      </div>
+
+      <div>
+
+        <div class="edu-degree">Team Project (4 Members)</div>
+        <div class="edu-program">Your Role: CAD Modeling Lead & System Integration</div>
+
+        <p class="edu-desc">
+          Developed a hybrid renewable charging prototype integrating solar PV panels and wind turbine
+          energy harvesting to supplement EV battery charging. The system utilized a turbine-driven
+          alternator and flexible solar panels to generate electrical energy stored in an auxiliary battery.
+        </p>
+
+        <br>
+
+        <strong>Design Highlights</strong>
+        <ul>
+          <li>Complete CAD model designed in SolidWorks</li>
+          <li>Integrated 50W solar panel with PWM charge controller</li>
+          <li>100A, 12V alternator driven via turbine mechanism</li>
+          <li>Auxiliary 7.2V 12Ah battery for energy storage</li>
+        </ul>
+
+        <br>
+
+        <strong>Results & Performance</strong>
+        <ul>
+          <li>Measured voltage increase under combined solar & wind input</li>
+          <li>Improved charging time compared to single-source charging</li>
+          <li>Demonstrated feasibility of hybrid charging assistance</li>
+        </ul>
+
+        <br>
+
+        <strong>Challenges</strong>
+        <ul>
+          <li>Mechanical alignment of turbine shaft and alternator</li>
+          <li>Voltage regulation and safe wiring connections</li>
+          <li>Efficiency losses in mechanical-to-electrical conversion</li>
+        </ul>
+
+        <br>
+
+        <strong>Images</strong>
+        <p>Add CAD renders and prototype images here later.</p>
+
       </div>
     </div>
 
