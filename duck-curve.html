@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solar Duck Curve Modeling | Shubham Khule</title>
+
+<style>
+:root{
+  --bg:#fbf6ef;
+  --bg2:#f6efe6;
+  --text:#121826;
+  --muted:#5b677a;
+  --line:#e7ded2;
+  --accent:#f59e0b;
+  --white:#ffffff;
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+a{ color:inherit; }
+
+.container{
+  max-width:1250px;
+  margin:0 auto;
+  padding:28px 24px 90px;
+}
+
+/* top nav back */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:18px;
+}
+.back{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  font-weight:900;
+  color:var(--muted);
+}
+.back:hover{ color:var(--text); }
+.back::before{ content:"←"; font-weight:900; }
+
+/* hero */
+.hero{
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.55);
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+}
+
+.hero-img{
+  position:relative;
+  height:360px;
+}
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.hero-img::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(18,24,38,.10), rgba(18,24,38,.55));
+}
+
+.hero-content{
+  position:absolute;
+  inset:auto 0 0 0;
+  padding:22px 26px;
+  color:#fff;
+}
+.kicker{
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.35em;
+  color:rgba(255,255,255,.85);
+  margin-bottom:10px;
+}
+.h1{
+  font-size:36px;
+  margin:0 0 10px;
+  line-height:1.1;
+}
+.sub{
+  margin:0;
+  max-width:900px;
+  color:rgba(255,255,255,.85);
+  line-height:1.7;
+  font-size:14.5px;
+}
+
+.body{
+  padding:28px 26px 30px;
+}
+
+/* section blocks */
+.grid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:22px;
+  margin-top:22px;
+}
+
+.block{
+  background:rgba(255,255,255,.65);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px 20px;
+}
+
+.block h2{
+  margin:0 0 12px;
+  font-size:18px;
+}
+
+.p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:14.5px;
+}
+
+.list{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.9;
+  font-size:14.5px;
+}
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid #d7cbbb;
+  background:rgba(255,255,255,.55);
+  color:var(--text);
+  font-size:12.5px;
+  font-weight:900;
+}
+.tag::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  background:var(--accent);
+}
+
+/* images */
+.gallery{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:14px;
+}
+.figure{
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(255,255,255,.65);
+}
+.figure img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  display:block;
+}
+.cap{
+  padding:10px 12px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.5;
+}
+
+/* responsive */
+@media(max-width:900px){
+  .hero-img{ height:300px; }
+  .h1{ font-size:28px; }
+  .grid{ grid-template-columns:1fr; }
+  .gallery{ grid-template-columns:1fr; }
+  .figure img{ height:240px; }
+}
+</style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="topbar">
+      <a class="back" href="index.html#projects">Back to Projects</a>
+    </div>
+
+    <div class="hero">
+      <div class="hero-img">
+        <!-- Use same hero image as project card -->
+        <img src="duck-curve-hero.png" alt="Solar Duck Curve Hero">
+        <div class="hero-content">
+          <div class="kicker">GRID ANALYTICS</div>
+          <h1 class="h1">Solar Duck Curve Modeling & Ramp Mitigation</h1>
+          <p class="sub">
+            MATLAB-based modeling of demand curve behavior and evaluation of battery + demand response strategies to reduce evening ramp and improve grid stability.
+          </p>
+        </div>
+      </div>
+
+      <div class="body">
+
+        <div class="block">
+          <h2>Project Summary</h2>
+          <p class="p">
+            This project analyzed the “duck curve” problem caused by increasing solar generation, where midday net demand dips and evening net demand ramps quickly.
+            I focused on modeling the demand curve behavior and evaluating mitigation using demand response and battery storage strategies.
+          </p>
+
+          <div class="tags">
+            <span class="tag">MATLAB</span>
+            <span class="tag">Demand Response</span>
+            <span class="tag">Battery Dispatch</span>
+            <span class="tag">Grid Integration</span>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="block">
+            <h2>My Role</h2>
+            <ul class="list">
+              <li>Modeled the demand curve behavior and generated key curves in MATLAB.</li>
+              <li>Performed demand response analysis to reduce peak ramp impact.</li>
+              <li>Performed battery analysis/dispatch logic to shift energy and smooth ramp.</li>
+              <li>Compiled plots/outputs used in the final report.</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h2>Tools</h2>
+            <ul class="list">
+              <li>MATLAB (curve modeling + analysis)</li>
+              <li>Data plotting + interpretation</li>
+              <li>Report + engineering documentation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="block">
+            <h2>Method (High-Level)</h2>
+            <ul class="list">
+              <li>Built the demand curve model and baseline net demand behavior.</li>
+              <li>Applied demand response assumptions to reduce critical peak load.</li>
+              <li>Applied battery charge/discharge dispatch to shift midday excess into evening ramp.</li>
+              <li>Compared baseline vs mitigated net demand curves.</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h2>Results / Key Takeaways</h2>
+            <ul class="list">
+              <li>Demonstrated reduced evening ramp using storage dispatch.</li>
+              <li>Showed how demand response reduces peak stress periods.</li>
+              <li>Highlighted grid stability benefits from combined DR + BESS.</li>
+            </ul>
+            <p class="p" style="margin-top:10px;">
+              (We’ll replace these bullets with your exact numbers/plots from the report as you want.)
+            </p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="block">
+            <h2>Challenges</h2>
+            <ul class="list">
+              <li>Choosing realistic assumptions for demand response participation.</li>
+              <li>Battery sizing and dispatch timing to maximize ramp reduction.</li>
+              <li>Interpreting curve impacts clearly for reporting.</li>
+            </ul>
+          </div>
+
+          <div class="block">
+            <h2>Observations</h2>
+            <ul class="list">
+              <li>Higher solar penetration deepens the midday dip.</li>
+              <li>Evening ramp increases as solar drops while demand rises.</li>
+              <li>BESS + DR together can flatten ramp and improve reliability.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="block" style="margin-top:22px;">
+          <h2>MATLAB Outputs (Add Your Real Plots Here)</h2>
+          <p class="p">
+            Upload/export the MATLAB plots as PNG/JPG into your repo and replace the image filenames below.
+          </p>
+
+          <div class="gallery">
+            <div class="figure">
+              <img src="duck-plot-1.png" alt="MATLAB Output Plot 1">
+              <div class="cap">Plot 1: Baseline net demand / duck curve (MATLAB output).</div>
+            </div>
+            <div class="figure">
+              <img src="duck-plot-2.png" alt="MATLAB Output Plot 2">
+              <div class="cap">Plot 2: Demand response and/or battery mitigation comparison.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
