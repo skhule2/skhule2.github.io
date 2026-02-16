@@ -186,6 +186,14 @@ body{
   grid-template-columns:repeat(2, 1fr);
   gap:12px;
 }
+  .gallery img.gimg{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.55);
+}
 .ph{
   border:1px solid var(--line);
   border-radius:14px;
@@ -297,11 +305,11 @@ body{
 
       <div class="h2">CAD + Prototype Images</div>
       <div class="gallery">
-        <div class="ph">CAD Image 1</div>
-        <div class="ph">CAD Image 2</div>
-        <div class="ph">Prototype 1</div>
-        <div class="ph">Prototype 2</div>
-      </div>
+  <img class="gimg" src="CAD Lef View.png" alt="CAD model view 1">
+  <img class="gimg" src="CAD isometric View.png" alt="CAD model view 2">
+  <img class="gimg" src="Side View Prototype.png" alt="Prototype photo 1">
+  <img class="gimg" src="Front View.png" alt="Prototype photo 2">
+</div>
       <div class="note">
         Replace these placeholders with your real image files from your GitHub repo (PNG/JPG),
         and I’ll format them cleanly (lightbox optional).
