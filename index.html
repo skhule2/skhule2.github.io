@@ -425,6 +425,17 @@ footer{
   margin:0 auto;
   align-items:stretch;
 }
+
+/* Force normal cards to behave like normal grid items */
+.projects-grid > .project-card{
+  grid-column:auto;
+}
+
+/* Only the hero card should take full width */
+.projects-grid > .project-card--hero{
+  grid-column:1 / -1;
+}
+
 .project-card{
   text-align:left;
   background:rgba(255,255,255,.65);
@@ -504,113 +515,9 @@ footer{
 @media(max-width:1000px){
   .projects{ padding:80px 24px; }
   .projects-title{ font-size:40px; }
+  .projects-grid{ grid-template-columns:1fr; }
+  .projects-grid > .project-card--hero{ grid-column:auto; }
 }
-
-/* orange side lines (same vibe as About) */
-.skills::before,
-.skills::after{
-  content:"";
-  position:absolute;
-  top:80px;
-  bottom:80px;
-  width:2px;
-  background:var(--accent);
-  opacity:.7;
-  border-radius:2px;
-}
-.skills::before{ left:35px; }
-.skills::after{ right:35px; }
-
-.skills-header{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.skills-kicker{
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:.35em;
-  color:var(--accent);
-}
-
-.skills-title{
-  margin:12px 0 0;
-  font-size:52px;
-  line-height:1.05;
-}
-.skills-title .muted{ color:var(--muted); }
-
-.skills-sub{
-  max-width:820px;
-  margin:14px auto 0;
-  color:var(--muted);
-  line-height:1.8;
-  font-size:16px;
-}
-
-/* grid */
-.skills-grid{
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:22px;
-  max-width:1200px;
-  margin:0 auto;
-}
-
-/* cards */
-.skill-card{
-  background:rgba(255,255,255,.65);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:22px;
-  box-shadow:0 12px 28px rgba(18,24,38,.06);
-}
-
-.skill-card h3{
-  margin:0 0 12px;
-  font-size:18px;
-}
-
-.badges{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid #d7cbbb;
-  background:rgba(255,255,255,.55);
-  color:var(--text);
-  font-size:13px;
-  font-weight:700;
-  white-space:nowrap;
-}
-
-.badge::before{
-  content:"";
-  width:8px;
-  height:8px;
-  border-radius:999px;
-  background:var(--accent);
-  opacity:.9;
-}
-
-/* responsive */
-@media(max-width:1000px){
-  .skills{ padding:80px 24px; }
-  .skills::before, .skills::after{ display:none; }
-  .skills-grid{ grid-template-columns:1fr; }
-  .skills-title{ font-size:40px; }
-}
-@media(max-width:1000px){
-  .projects-grid{
-    grid-template-columns:1fr;
-  }
 }
 
 /* ================= EDUCATION (NEW) ================= */
