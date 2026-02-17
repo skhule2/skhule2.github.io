@@ -291,7 +291,7 @@ footer{
   max-width:1250px;
   margin:0 auto;
   position:relative;
-  padding:100px 120px; /* more breathing room from the orange lines */
+  padding:100px 120px;
 }
 
 /* orange side lines */
@@ -307,14 +307,13 @@ footer{
   border-radius:2px;
 }
 
-/* move lines slightly inward (but not touching text) */
 .about::before{ left:35px; }
 .about::after{ right:35px; }
 
 .about-container{
   display:grid;
   grid-template-columns: 1.1fr 1fr;
-  gap:140px;              /* bigger distance between left and right */
+  gap:140px;
   max-width:1200px;
   margin:0 auto;
   align-items:start;
@@ -343,16 +342,14 @@ footer{
   margin-bottom:18px;
 }
 
-/* headshot holder */
 .headshot-window{
   display:flex;
   justify-content:center;
   align-items:flex-start;
 }
 
-/* cathedral / window shape */
 .headshot-inner{
-  width:340px;     /* slightly narrower like you asked */
+  width:340px;
   height:520px;
 
   border-top-left-radius: 220px;
@@ -379,7 +376,6 @@ footer{
   overflow:hidden;
 }
 
-/* make About stack on mobile */
 @media(max-width:900px){
   .about{
     padding:80px 24px;
@@ -394,13 +390,6 @@ footer{
   }
 }
 
-/* ================= SKILLS ================= */
-.skills{
-  max-width:1250px;
-  margin:0 auto;
-  position:relative;
-  padding:100px 120px;
-}
 /* ================= PROJECTS ================= */
 .projects{
   max-width:1250px;
@@ -518,11 +507,120 @@ footer{
   .projects-grid{ grid-template-columns:1fr; }
   .projects-grid > .project-card--hero{ grid-column:auto; }
 }
+
+/* ================= SKILLS ================= */
+.skills{
+  max-width:1250px;
+  margin:0 auto;
+  position:relative;
+  padding:100px 120px;
+}
+
+/* orange side lines (same vibe as About) */
+.skills::before,
+.skills::after{
+  content:"";
+  position:absolute;
+  top:80px;
+  bottom:80px;
+  width:2px;
+  background:var(--accent);
+  opacity:.7;
+  border-radius:2px;
+}
+.skills::before{ left:35px; }
+.skills::after{ right:35px; }
+
+.skills-header{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.skills-kicker{
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.35em;
+  color:var(--accent);
+}
+
+.skills-title{
+  margin:12px 0 0;
+  font-size:52px;
+  line-height:1.05;
+}
+.skills-title .muted{ color:var(--muted); }
+
+.skills-sub{
+  max-width:820px;
+  margin:14px auto 0;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:16px;
+}
+
+/* grid */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:22px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+/* cards */
+.skill-card{
+  background:rgba(255,255,255,.65);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 12px 28px rgba(18,24,38,.06);
+}
+
+.skill-card h3{
+  margin:0 0 12px;
+  font-size:18px;
+}
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid #d7cbbb;
+  background:rgba(255,255,255,.55);
+  color:var(--text);
+  font-size:13px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+.badge::before{
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:999px;
+  background:var(--accent);
+  opacity:.9;
+}
+
+/* responsive */
+@media(max-width:1000px){
+  .skills{ padding:80px 24px; }
+  .skills::before, .skills::after{ display:none; }
+  .skills-grid{ grid-template-columns:1fr; }
+  .skills-title{ font-size:40px; }
 }
 
 /* ================= EDUCATION (NEW) ================= */
 .education{
-  max-width:1250px;       /* utilize more page width */
+  max-width:1250px;
   margin:0 auto;
   padding:95px 24px;
   text-align:center;
@@ -551,7 +649,6 @@ footer{
   gap:26px;
 }
 
-/* big cards like your screenshot */
 .edu-card{
   text-align:left;
   background:rgba(255,255,255,.55);
@@ -579,7 +676,6 @@ footer{
   white-space:nowrap;
 }
 
-/* small calendar icon */
 .edu-date::before{
   content:"";
   width:14px;
@@ -620,15 +716,8 @@ footer{
   gap:10px;
 }
 
-/* little icons */
-.edu-meta .loc::before{
-  content:"📍";
-  font-size:14px;
-}
-.edu-meta .gpa::before{
-  content:"⭐";
-  font-size:14px;
-}
+.edu-meta .loc::before{ content:"📍"; font-size:14px; }
+.edu-meta .gpa::before{ content:"⭐"; font-size:14px; }
 
 .edu-desc{
   color:var(--muted);
@@ -637,15 +726,10 @@ footer{
   font-size:14.5px;
 }
 
-/* responsive education */
 @media(max-width:900px){
   .education-title{font-size:42px;}
-  .edu-card{
-    grid-template-columns:1fr;
-  }
-  .edu-date{
-    width:max-content;
-  }
+  .edu-card{ grid-template-columns:1fr; }
+  .edu-date{ width:max-content; }
 }
 
 /* ================= PUBLICATIONS ================= */
@@ -725,14 +809,9 @@ footer{
   box-shadow:0 8px 20px rgba(0,0,0,.15);
 }
 
-/* responsive */
 @media(max-width:1000px){
-  .research{
-    padding:80px 24px;
-  }
-  .research-grid{
-    grid-template-columns:1fr;
-  }
+  .research{ padding:80px 24px; }
+  .research-grid{ grid-template-columns:1fr; }
 }
 
 /* ================= CERTIFICATES (NEW CARDS) ================= */
@@ -743,9 +822,7 @@ footer{
   text-align:center;
 }
 
-.cert-header{
-  margin-bottom:48px;
-}
+.cert-header{ margin-bottom:48px; }
 
 .cert-title{
   font-size:56px;
@@ -812,31 +889,13 @@ footer{
   color:var(--accent);
   background:rgba(245,158,11,.08);
 }
-.cert-preview small{
-  color:var(--muted);
-  font-weight:800;
-}
-.cert-preview span{
-  color:var(--accent);
-  font-weight:900;
-  font-size:13px;
-}
+.cert-preview small{ color:var(--muted); font-weight:800; }
+.cert-preview span{ color:var(--accent); font-weight:900; font-size:13px; }
 
-.cert-info{
-  padding:18px 18px 20px;
-}
-.cert-org{
-  font-weight:900;
-  margin:0 0 6px;
-}
-.cert-name{
-  margin:0;
-  color:var(--muted);
-  line-height:1.6;
-  font-size:14px;
-}
+.cert-info{ padding:18px 18px 20px; }
+.cert-org{ font-weight:900; margin:0 0 6px; }
+.cert-name{ margin:0; color:var(--muted); line-height:1.6; font-size:14px; }
 
-/* responsive certificates */
 @media(max-width:1100px){
   .certificates{ padding:80px 24px; }
   .cert-grid{ grid-template-columns:1fr; }
@@ -854,9 +913,7 @@ footer{
   z-index:9999;
 }
 
-.cert-modal.active{
-  display:flex;
-}
+.cert-modal.active{ display:flex; }
 
 .cert-content{
   width:90%;
@@ -912,7 +969,8 @@ footer{
   background:var(--accent);
   color:#1a1a1a;
 }
-  /* ================= CONTACT (THEME MATCHING) ================= */
+
+/* ================= CONTACT (THEME MATCHING) ================= */
 .contact{
   max-width:1250px;
   margin:0 auto;
@@ -945,7 +1003,6 @@ footer{
   align-items:start;
 }
 
-/* form card */
 .contact-card{
   background:rgba(255,255,255,.6);
   border:1px solid var(--line);
@@ -1006,22 +1063,8 @@ footer{
   box-shadow:0 10px 20px rgba(0,0,0,.12);
 }
 
-/* right side */
-.direct{
-  padding-top:10px;
-}
-
-.direct h3{
-  margin:0 0 20px;
-  font-size:22px;
-}
-
-.direct-item{
-  display:flex;
-  flex-direction:column;
-  gap:6px;
-  margin-bottom:20px;
-}
+.direct{ padding-top:10px; }
+.direct h3{ margin:0 0 20px; font-size:22px; }
 
 .direct-label{
   font-size:13px;
@@ -1033,22 +1076,15 @@ footer{
   font-weight:900;
   color:var(--text);
   text-decoration:none;
+  transition:.2s ease;
 }
+.direct-link:hover{ color:var(--accent); }
 
-.direct-link:hover{
-  color:var(--accent);
-}
-
-/* responsive */
 @media(max-width:900px){
-  .contact{
-    padding:80px 24px;
-  }
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
+  .contact{ padding:80px 24px; }
+  .contact-grid{ grid-template-columns:1fr; }
 }
-/* icon row layout */
+
 .direct-row{
   display:flex;
   align-items:center;
@@ -1056,7 +1092,6 @@ footer{
   margin-bottom:22px;
 }
 
-/* icon box */
 .icon-box{
   width:44px;
   height:44px;
@@ -1068,19 +1103,6 @@ footer{
   border:1px solid rgba(245,158,11,.25);
   font-size:18px;
 }
-
-/* make link bold + clean */
-.direct-link{
-  font-weight:900;
-  color:var(--text);
-  text-decoration:none;
-  transition:.2s ease;
-}
-
-.direct-link:hover{
-  color:var(--accent);
-}
-
 </style>
 </head>
 
@@ -1157,6 +1179,7 @@ footer{
 
   </div>
 </section>
+
 <!-- ================= PROJECTS ================= -->
 <section class="projects" id="projects">
 
@@ -1245,37 +1268,35 @@ footer{
       </div>
     </div>
 
-  </div>
-  <!-- Project: PCM + EnergyPlus (Team Project) -->
-<div class="project-card">
-  <div class="project-img">
-    <!-- Add this hero image file to your repo (JPG/PNG) and keep the same filename -->
-    <img src="pcm-energyplus-hero.jpg" alt="PCM Integration for HVAC Load Reduction (EnergyPlus)">
-  </div>
+    <!-- Project: PCM + EnergyPlus (Team Project) -->
+    <div class="project-card">
+      <div class="project-img">
+        <img src="pcm-energyplus-hero.jpg" alt="PCM Integration for HVAC Load Reduction (EnergyPlus)">
+      </div>
 
-  <div class="project-body">
-    <div class="project-tag">HVAC · BUILDING ENERGY MODELING</div>
+      <div class="project-body">
+        <div class="project-tag">HVAC · BUILDING ENERGY MODELING</div>
 
-    <h3 class="project-name">PCM Integration for HVAC Load Reduction (EnergyPlus)</h3>
+        <h3 class="project-name">PCM Integration for HVAC Load Reduction (EnergyPlus)</h3>
 
-    <p class="project-desc">
-      Team project evaluating Phase Change Materials (PCM) in the building envelope using EnergyPlus simulations
-      to reduce cooling loads, peak demand, and annual energy use.
-    </p>
+        <p class="project-desc">
+          Team project evaluating Phase Change Materials (PCM) in the building envelope using EnergyPlus simulations
+          to reduce cooling loads, peak demand, and annual energy use.
+        </p>
 
-    <div class="project-badges">
-      <span class="project-badge">EnergyPlus</span>
-      <span class="project-badge">PCM</span>
-      <span class="project-badge">HVAC Load Analysis</span>
-      <span class="project-badge">Team Project</span>
+        <div class="project-badges">
+          <span class="project-badge">EnergyPlus</span>
+          <span class="project-badge">PCM</span>
+          <span class="project-badge">HVAC Load Analysis</span>
+          <span class="project-badge">Team Project</span>
+        </div>
+
+        <a class="project-btn" href="project-pcm-energyplus.html">View Project</a>
+      </div>
     </div>
 
-    <a class="project-btn" href="project-pcm-energyplus.html">View Project</a>
   </div>
-</div>
-
 </section>
-
 
 <section class="skills" id="skills">
   <div class="skills-header">
@@ -1449,7 +1470,6 @@ footer{
   </div>
 </div>
 
-
     <div class="cert-card" onclick="openCert('ishrae+certificate.pdf')" role="button" tabindex="0">
       <div class="cert-datepill">2023–24</div>
       <div class="cert-preview">
@@ -1564,6 +1584,7 @@ footer{
     </div>
   </div>
 </div>
+
 <section class="contact" id="contact">
 
   <div class="contact-header">
@@ -1601,34 +1622,37 @@ footer{
 
     </div>
 
-  <div class="direct">
-  <h3>Direct Contact</h3>
+    <div class="direct">
+      <h3>Direct Contact</h3>
 
-  <div class="direct-row">
-    <div class="icon-box">✉️</div>
-    <div>
-      <div class="direct-label">Email</div>
-      <a class="direct-link" href="mailto:skhule2@asu.edu">
-        skhule2@asu.edu
-      </a>
+      <div class="direct-row">
+        <div class="icon-box">✉️</div>
+        <div>
+          <div class="direct-label">Email</div>
+          <a class="direct-link" href="mailto:skhule2@asu.edu">
+            skhule2@asu.edu
+          </a>
+        </div>
+      </div>
+
+      <div class="direct-row">
+        <div class="icon-box">in</div>
+        <div>
+          <div class="direct-label">LinkedIn</div>
+          <a class="direct-link"
+             href="https://www.linkedin.com/in/shubham-khule-2059bb283"
+             target="_blank">
+             LinkedIn Profile
+          </a>
+        </div>
+      </div>
+
     </div>
-  </div>
 
-  <div class="direct-row">
-    <div class="icon-box">in</div>
-    <div>
-      <div class="direct-label">LinkedIn</div>
-      <a class="direct-link"
-         href="https://www.linkedin.com/in/shubham-khule-2059bb283"
-         target="_blank">
-         LinkedIn Profile
-      </a>
-    </div>
   </div>
-
-</div>
 
 </section>
+
 <script>
 function openCert(file){
   const modal = document.getElementById("certModal");
@@ -1662,6 +1686,7 @@ document.addEventListener("keydown", (e) => {
   if(e.key === "Escape") closeCert();
 });
 </script>
+
 <script>
 function sendContactEmail(){
   const name = document.getElementById("cname").value.trim();
@@ -1677,8 +1702,10 @@ function sendContactEmail(){
     `mailto:skhule2@asu.edu?subject=${subject}&body=${body}`;
 }
 </script>
+
 <footer>
   © 2026 Shubham Khule
 </footer>
+
 </body>
 </html>
