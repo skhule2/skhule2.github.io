@@ -417,16 +417,14 @@ footer{
   line-height:1.05;
 }
 
-/* grid that centers nicely whether 1 or 2+ cards */
 .projects-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns:repeat(2, 1fr);
   gap:30px;
   max-width:1200px;
   margin:0 auto;
   align-items:stretch;
 }
-
 .project-card{
   text-align:left;
   background:rgba(255,255,255,.65);
@@ -608,6 +606,11 @@ footer{
   .skills::before, .skills::after{ display:none; }
   .skills-grid{ grid-template-columns:1fr; }
   .skills-title{ font-size:40px; }
+}
+@media(max-width:1000px){
+  .projects-grid{
+    grid-template-columns:1fr;
+  }
 }
 
 /* ================= EDUCATION (NEW) ================= */
